@@ -80,7 +80,7 @@
     /* 店舗情報 */
     .info-grid{display:grid;gap:18px}
     @media(min-width:800px){.info-grid{grid-template-columns:1fr 1fr}}
-    .kv{aspect-ratio:16/10;object-fit:cover}
+    .kv{aspect-ratio:16/10;object-fit:cover;object-position:center 40%}
 
     /* メニュー */
     .menu-grid{display:grid;gap:16px}
@@ -183,6 +183,15 @@ animation:blob2 28s ease-in-out infinite alternate}
 @media(min-width:720px){.chili-grid{grid-template-columns:repeat(3,1fr)}}
 .chili{background:var(--card);border:1px solid #ffffff14;border-radius:12px;padding:14px}
 .chili h4{margin:.2rem 0 .4rem;font-size:1rem}
+/* Responsive image sizing (CSS-only) */
+@media(max-width: 719px){
+  .menu-item img{ width:72px; height:72px; }
+}
+@media(min-width: 1100px){
+  .menu-item img{ width:104px; height:104px; }
+}
+/* hero padding a bit adaptive */
+.hero .container{ padding: clamp(40px, 8vw, 70px) 20px 40px; }
 </style>
   <script type="application/ld+json">
   {
@@ -248,7 +257,7 @@ animation:blob2 28s ease-in-out infinite alternate}
         </div>
       </div>
       <div>
-        <img class="kv" src="img/tantanmen.jpg" alt="湯気の立つ担々麺の写真" loading="lazy" />
+        <img class="kv" src="img/tantanmen.jpg" alt="湯気の立つ担々麺の写真" loading="lazy" />>
       </div>
     </div>
   </section>
@@ -319,7 +328,7 @@ animation:blob2 28s ease-in-out infinite alternate}
 
       <!-- ふわトロオムライス -->
       <div class="card" style="margin-top:16px">
-        <img src="img/omuraisu.jpg" alt="菜の花ラーメン" loading="lazy" width="176" height="176"/>
+        <img src="img/omuraisu.jpg" alt="ふわトロオムライス" loading="lazy" width="176" height="176"/>
         <p class="muted" style="margin:.2rem 0 1rem">創業当時からの王道メニュー！<br><span class="note">※各担々麺・菜の花ラーメンのセットとして注文可能</span></p>
         <dl class="price-list">
           <dt>単品</dt><dd>¥900</dd>
@@ -396,8 +405,8 @@ animation:blob2 28s ease-in-out infinite alternate}
       <h2>写真</h2>
       <p class="lead">店内・料理の雰囲気をご覧ください。</p>
       <div class="photo-grid">
-        <img src="img/naisou.jpg" alt="カウンター席（参考）" loading="lazy" height="600"/>
-        <img src="img/gaikan.jpg" alt="店舗外観（参考）" loading="lazy" height="600"/>
+        <img src="img/naisou.jpg" alt="店内カウンター席" loading="lazy" height="600"/>
+        <img src="img/gaikan.jpg" alt="店舗外観" loading="lazy" height="600"/>
       </div>
     </div>
   </section>
