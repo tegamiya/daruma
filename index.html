@@ -11,195 +11,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1617093727343-374698792f0b?q=80&w=1200&auto=format&fit=crop" />
   <meta name="format-detection" content="telephone=no" />
-  <style>
-    :root{
-      --bg:#0b0b0b; /* 背景(ほぼ黒) */
-      --fg:#f5f5f5; /* 文字(ほぼ白) */
-      --muted:#c4c4c4; /* 補助文字 */
-      --accent:#e23a2e; /* 赤(担々カラー) */
-      --accent-2:#f2c14e; /* 差し色 */
-      --card:#121212; /* カード背景 */
-      --max:1100px;
-      --radius:14px;
-    }
-    html{scroll-behavior:smooth}
-    body{margin:0;background:linear-gradient(180deg,#0b0b0b,#141414);color:var(--fg);font:16px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif}
-    img{max-width:100%;height:auto;border-radius:12px}
-    a{color:var(--fg);text-decoration:none}
-    .container{width:min(100%,var(--max));margin-inline:auto;padding:0 20px}
-    .pill{display:inline-block;padding:.4rem .9rem;border:1px solid #ffffff22;border-radius:999px;background:#ffffff10;backdrop-filter:blur(6px)}
 
-    /* ヘッダー */
-    header{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.7);backdrop-filter:blur(8px);border-bottom:1px solid #ffffff14}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
-    .brand{display:flex;gap:.6rem;align-items:center}
-    .brand a{color:inherit;text-decoration:none}
-    .brand a:hover{opacity:1}
-    .logo{
-      width:34px; height:34px;
-      border-radius:8px;
-      display:block;
-      object-fit:cover;    /* 画像をはみ出さずにトリミング */
-      object-position:50% 50%;
-      background:none;     /* 以前のグラデ背景を無効化 */
-    }
-    .brand h1{font-size:1rem;margin:0;font-weight:700;letter-spacing:.04em}
-    nav a{opacity:.9}
-    nav a:hover{opacity:1}
+  <!-- 分離したCSS -->
+  <link rel="stylesheet" href="css/styles.css">
 
-    /* ハンバーガー(詳細) */
-    details[role="list"]{position:relative}
-    details[role="list"] summary{list-style:none;cursor:pointer; padding:.4rem .75rem;border:1px solid #ffffff20;border-radius:10px}
-    details[role="list"] summary::marker, details[role="list"] summary::-webkit-details-marker{display:none}
-    details[role="list"] .menu{position:absolute;right:0;top:calc(100% + 8px);background:#191919;border:1px solid #ffffff18;border-radius:12px;min-width:220px;display:flex;flex-direction:column;overflow:hidden}
-    details[open][role="list"] .menu a{padding:.9rem 1rem;border-bottom:1px solid #ffffff12}
-    details[open][role="list"] .menu a:hover{background:#ffffff08}
-    @media(min-width:900px){
-      details[role="list"]{display:none}
-      .links{display:flex;gap:18px}
-    }
-    @media(max-width:899px){
-      .links{display:none}
-    }
-
-    /* ヒーロー */
-    .hero{position:relative;isolation:isolate}
-    .hero .container{padding:70px 20px 40px}
-    .hero-grid{display:grid;gap:24px;align-items:center}
-    @media(min-width:900px){
-      .hero-grid{grid-template-columns:1.15fr .85fr}
-    }
-    .badge{color:#fff;background:linear-gradient(90deg,var(--accent),#a51c12);box-shadow:0 10px 30px rgba(226,58,46,.35)}
-    .title{font-size:clamp(28px,5vw,48px);line-height:1.15;margin:.7rem 0 .3rem;font-weight:800}
-    .sub{color:var(--muted);margin:0 0 1.2rem}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:.8rem 1.2rem;border-radius:12px;border:1px solid #ffffff22;font-weight:700}
-    .btn-primary{background:var(--accent);border-color:#000;box-shadow:0 10px 25px rgba(226,58,46,.35)}
-    .btn-primary:hover{filter:brightness(1.05)}
-    .btn-outline{background:transparent}
-
-    /* セクション共通 */
-    section{padding:60px 0;border-top:1px solid #ffffff10;scroll-margin-top:84px}
-    section h2{font-size:clamp(22px,3.4vw,34px);margin:0 0 .8rem}
-    .lead{color:var(--muted)}
-    .card{background:var(--card);border:1px solid #ffffff10;border-radius:var(--radius);padding:22px}
-
-    /* 店舗情報 */
-    .info-grid{display:grid;gap:18px}
-    @media(min-width:800px){.info-grid{grid-template-columns:1fr 1fr}}
-    .kv{aspect-ratio:16/10;object-fit:cover;object-position:center 40%}
-
-    /* メニュー */
-    .menu-grid{display:grid;gap:16px}
-    @media(min-width:720px){.menu-grid{grid-template-columns:repeat(3,1fr)}}
-    .menu-item{display:flex;gap:12px}
-    .menu-item img{width:88px;height:88px;object-fit:cover;border-radius:10px}
-    .menu-item h3{margin:.1rem 0;font-size:1.05rem}
-    .price{margin-left:auto;font-weight:700}
-    .tag{font-size:.78rem;color:#ffd5cf}
-
-    /* 写真 */
-    .photo-grid{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
-    @media(min-width:900px){.photo-grid{grid-template-columns:repeat(4,1fr)}}
-    .photo-grid img{aspect-ratio:1/1;object-fit:cover}
-
-    /* アクセス */
-    .map{border:0;width:100%;height:380px;border-radius:14px}
-    .access{display:grid;gap:18px}
-    @media(min-width:900px){.access{grid-template-columns:1.1fr .9fr}}
-
-    /* お問い合わせ */
-    .contact-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .contact-actions a{display:inline-flex;align-items:center;gap:.5rem}
-
-    /* フッター */
-    footer{padding:40px 0;color:#bdbdbd;text-align:center;border-top:1px solid #ffffff10}
-    footer a{color:#e7e7e7}
-
-    /* 細かなアクセント */
-    .accent-bar{height:3px;background:linear-gradient(90deg,var(--accent),transparent,var(--accent-2))}
-    .muted{color:var(--muted)}
-  /* === Motion add-ons === */
-:root{ --motion-fast:160ms; --motion-base:260ms; --easing:cubic-bezier(.22,.61,.36,1); }
-.reveal-base{ opacity:0; transform:translateY(10px); }
-.reveal-in{ opacity:1; transform:none; transition: opacity var(--motion-base) var(--easing), transform var(--motion-base) var(--easing); }
-.menu-item{ transition: transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing); }
-.menu-item:hover{ transform: translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.25); }
-.btn{ transition: transform var(--motion-fast) var(--easing), opacity var(--motion-fast) var(--easing); }
-.btn:active{ transform: scale(.98); opacity:.95; }
-header{ transition: padding var(--motion-fast) var(--easing), background var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing); }
-header.scrolled{ background: rgba(11,11,11,.85); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
-header.scrolled .nav{ padding:.35rem 0; }
-@media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } .reveal-base{ opacity:1 !important; transform:none !important; } }
-/* === UX add-ons === */
-/* Scrollspy current section indicator */
-nav a.active{ position:relative; }
-nav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:2px; }
-/* Top progress bar */
-#progress{ position:fixed; top:0; left:0; height:3px; width:0; z-index:999; background:linear-gradient(90deg,var(--accent),var(--accent-2)); }
-/* Blur-up images */
-.blur-up{ filter:blur(8px); transform:scale(1.02); transition:filter 400ms var(--easing), transform 400ms var(--easing); }
-.blur-up.loaded{ filter:blur(0); transform:none; }
-#photos .photo-grid img{ cursor: zoom-in; }
-/* === Flashy mode (toggleable) === */
-body.flashy::before, body.flashy::after, html.flashy body::before, html.flashy body::after{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;filter:blur(40px);opacity:.18}
-body.flashy::before, html.flashy body::before{background:
-  radial-gradient(600px 300px at 20% 20%, rgba(226,58,46,.30), transparent 60%),
-  radial-gradient(500px 250px at 80% 10%, rgba(242,193,78,.22), transparent 60%);
-animation:blob1 24s ease-in-out infinite alternate}
-body.flashy::after, html.flashy body::after{background:
-  radial-gradient(520px 260px at 70% 80%, rgba(226,58,46,.22), transparent 60%);
-animation:blob2 28s ease-in-out infinite alternate}
-@keyframes blob1{to{transform:translate(20px,10px) scale(1.05)}}
-@keyframes blob2{to{transform:translate(-30px,-10px) scale(1.08)}}
-
-.flashy .title{background:linear-gradient(90deg,#fff,var(--accent),var(--accent-2),#fff);background-size:300% 100%;-webkit-background-clip:text;color:transparent;animation:shine 5s linear infinite}
-@keyframes shine{0%{background-position:0 0}100%{background-position:300% 0}}
-
-.flashy .btn-primary{position:relative;overflow:hidden}
-.flashy .btn-primary::after{content:"";position:absolute;top:-120%;bottom:-120%;left:-30%;width:30%;transform:translateX(-120%) rotate(20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);animation:sheen 3.2s infinite}
-@keyframes sheen{to{transform:translateX(500%) rotate(20deg)}}
-
-.flashy .menu-item{transition: transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing)}
-.flashy .menu-item:hover{transform:translateY(-8px) rotate(-.6deg) scale(1.02);box-shadow:0 14px 30px rgba(0,0,0,.35)}
-.flashy #photos .photo-grid img{transition: transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing)}
-.flashy #photos .photo-grid img:hover{transform:translateY(-6px) rotate(.8deg) scale(1.02);box-shadow:0 18px 30px rgba(0,0,0,.35)}
-
-/* marquee notice */
-.marquee{overflow:hidden;border-top:1px solid #ffffff12;border-bottom:1px solid #ffffff12;background:#111}
-.marquee .track{display:inline-block;white-space:nowrap;padding:.4rem 0;animation:scroll 22s linear infinite}
-.marquee:hover .track{animation-play-state:paused}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* wave separator */
-.wave svg{display:block;width:100%;height:auto}
-.wave path{fill:#111;opacity:.8}
-
-
-@media (prefers-reduced-motion: reduce){
-  .marquee .track{animation:none}
-}
-#toggleFlash{color:#fff !important}
-#toggleFlash:focus-visible{outline:2px solid #fff; outline-offset:2px}
-.price-list{display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:baseline}
-.price-list dt{font-weight:700}
-.price-list dd{margin:0;justify-self:end;font-weight:700}
-.note{font-size:.9rem;color:var(--muted)}
-.badge-reco{display:inline-block;margin-left:.5rem;font-size:.78rem;padding:.15rem .5rem;border-radius:999px;background:#ffffff10;border:1px solid #ffffff22}
-.chili-grid{display:grid;gap:12px}
-@media(min-width:720px){.chili-grid{grid-template-columns:repeat(3,1fr)}}
-.chili{background:var(--card);border:1px solid #ffffff14;border-radius:12px;padding:14px}
-.chili h4{margin:.2rem 0 .4rem;font-size:1rem}
-/* Responsive image sizing (CSS-only) */
-@media(max-width: 719px){
-  .menu-item img{ width:72px; height:72px; }
-}
-@media(min-width: 1100px){
-  .menu-item img{ width:104px; height:104px; }
-}
-/* hero padding a bit adaptive */
-.hero .container{ padding: clamp(40px, 8vw, 70px) 20px 40px; }
-</style>
+  <!-- 構造化データ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -207,7 +23,7 @@ animation:blob2 28s ease-in-out infinite alternate}
     "name": "担々麺だるま",
     "servesCuisine": "Chinese",
     "address": {"@type": "PostalAddress", "addressLocality": "大野城市", "streetAddress": "下大利1-15-14", "postalCode": "816-0952"},
-        "url": "https://your-name.github.io/your-repo/",
+    "url": "https://your-name.github.io/your-repo/",
     "priceRange": "¥¥",
     "image": [
       "https://images.unsplash.com/photo-1617093727343-374698792f0b?q=80&w=1200&auto=format&fit=crop"
@@ -218,14 +34,14 @@ animation:blob2 28s ease-in-out infinite alternate}
 <body>
   <div class="accent-bar" aria-hidden="true"></div>
   <div id="progress"></div>
-  <a href="#main" class="pill" style="position:absolute;left:-9999px;top:-9999px">本文へスキップ</a>
+  <a href="#main" class="pill skip-link">本文へスキップ</a>
 
   <!-- Header / Navigation -->
   <header>
     <div class="container nav">
       <div class="brand">
-      <img class="logo" src="img/daruma.png"  alt="" width="34" height="34" loading="lazy" decoding="async" />        
-      <h1><a href="#main" class="home-link" aria-label="トップへ戻る">担々麺だるま</a></h1>
+        <img class="logo" src="img/daruma.png" alt="" width="34" height="34" loading="lazy" decoding="async" />
+        <h1><a href="#main" class="home-link" aria-label="トップへ戻る">担々麺だるま</a></h1>
       </div>
       <nav aria-label="主要メニュー">
         <div class="links">
@@ -249,7 +65,10 @@ animation:blob2 28s ease-in-out infinite alternate}
       </nav>
     </div>
   </header>
-  <div class="marquee" aria-label="お知らせ"><div class="track">🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma 　　🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma</div></div>
+
+  <div class="marquee" aria-label="お知らせ">
+    <div class="track">🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma 　　🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma</div>
+  </div>
 
   <!-- Hero -->
   <section class="hero" id="main">
@@ -268,6 +87,7 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
     </div>
   </section>
+
   <div class="wave" aria-hidden="true">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0,40 C240,120 480,0 720,60 C960,120 1200,40 1440,80 L1440,120 L0,120 Z"></path>
@@ -285,7 +105,8 @@ animation:blob2 28s ease-in-out infinite alternate}
           <li>営業時間：<strong>11:00–14:30 / 17:00–23:30</strong>（変更の可能性あり）</li>
           <li>定休日：<strong>不定休</strong>（最新情報はInstagramをご確認ください）</li>
           <li>席数：<strong>カウンター10・テーブル8（計18席）</strong></li>
-          <li>支払い：<strong>現金・PayPay（カード不可）</strong></li></ul>
+          <li>支払い：<strong>現金・PayPay（カード不可）</strong></li>
+        </ul>
       </div>
       <div class="card">
         <h2>こだわり</h2>
@@ -304,9 +125,9 @@ animation:blob2 28s ease-in-out infinite alternate}
   <section id="menu">
     <div class="container">
       <h2>メニュー <span class="note">（税込）</span></h2>
-      
+
       <!-- おすすめ -->
-      <div class="menu-grid" style="margin-top:14px">
+      <div class="menu-grid mt-14">
         <div class="card menu-item">
           <img src="img/aka.jpg" alt="赤の担々麺" loading="lazy" width="176" height="176"/>
           <div>
@@ -326,7 +147,7 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
 
       <!-- 単品・麺類 -->
-      <div class="card" style="margin-top:16px">
+      <div class="card mt-16">
         <img src="img/nanohana.jpg" alt="菜の花ラーメン" loading="lazy" width="176" height="176"/>
         <dl class="price-list">
           <dt>菜の花ラーメン <span class="note">（鶏ガラ醤油ベース）</span></dt><dd>¥900</dd>
@@ -334,9 +155,9 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
 
       <!-- ふわトロオムライス -->
-      <div class="card" style="margin-top:16px">
+      <div class="card mt-16">
         <img src="img/omuraisu.jpg" alt="ふわトロオムライス" loading="lazy" width="176" height="176"/>
-        <p class="muted" style="margin:.2rem 0 1rem">創業当時からの王道メニュー！<br><span class="note">※各担々麺・菜の花ラーメンのセットとして注文可能</span></p>
+        <p class="muted note-block">創業当時からの王道メニュー！<br><span class="note">※各担々麺・菜の花ラーメンのセットとして注文可能</span></p>
         <dl class="price-list">
           <dt>単品</dt><dd>¥900</dd>
           <dt>セットメニュー【小】</dt><dd>¥1,400</dd>
@@ -344,8 +165,8 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
 
       <!-- セットメニュー -->
-      <div class="card" style="margin-top:16px">
-        <h3 style="margin-top:0">セットメニュー <span class="note">（各担々麺・菜の花ラーメンに追加）</span></h3>
+      <div class="card mt-16">
+        <h3>セットメニュー <span class="note">（各担々麺・菜の花ラーメンに追加）</span></h3>
         <dl class="price-list">
           <dt>オムライス（小）</dt><dd>+¥500</dd>
           <dt>白ご飯（中）</dt><dd>+¥200</dd>
@@ -353,8 +174,8 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
 
       <!-- その他メニュー -->
-      <div class="card" style="margin-top:16px">
-        <h3 style="margin-top:0">その他</h3>
+      <div class="card mt-16">
+        <h3>その他</h3>
         <dl class="price-list">
           <dt>各麺 大盛</dt><dd>+¥200</dd>
           <dt>各麺 替玉</dt><dd>+¥200</dd>
@@ -362,9 +183,9 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
 
       <!-- トッピング -->
-      <div class="card" style="margin-top:16px">
-        <h3 style="margin-top:0">トッピング</h3>
-        <p class="note" style="margin:.2rem 0 1rem">肉味噌・菜の花は通常量に対して<strong>1.5～2倍</strong>追加します。</p>
+      <div class="card mt-16">
+        <h3>トッピング</h3>
+        <p class="note note-block">肉味噌・菜の花は通常量に対して<strong>1.5～2倍</strong>追加します。</p>
         <dl class="price-list">
           <dt>肉味噌多め</dt><dd>+¥200</dd>
           <dt>菜の花多め</dt><dd>+¥200</dd>
@@ -373,8 +194,8 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
 
       <!-- 辛味表 -->
-      <div class="card" style="margin-top:16px">
-        <h3 style="margin-top:0">辛味表 <span class="note">（赤・黒の担々麺のみ調整可能）</span></h3>
+      <div class="card mt-16">
+        <h3>辛味表 <span class="note">（赤・黒の担々麺のみ調整可能）</span></h3>
         <div class="chili-grid">
           <div class="chili">
             <h4>◆ ひかえめ</h4>
@@ -425,11 +246,11 @@ animation:blob2 28s ease-in-out infinite alternate}
         <h2>地図・アクセス</h2>
         <p class="lead">最寄り：<strong>西鉄下大利駅 徒歩1分</strong>。駐車場は店舗横に<strong>1台</strong>ございます（近隣コインPあり）。</p>
         <div class="map-placeholder card" id="mapbox" data-src="https://maps.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E5%A4%A7%E9%87%8E%E5%9F%8E%E5%B8%82%E4%B8%8B%E5%A4%A7%E5%88%A91-15-14&t=&z=17&ie=UTF8&iwloc=&output=embed">
-  <p class="lead" style="margin:0 0 .6rem">地図はクリックで読み込み</p>
-  <button class="btn btn-primary" id="loadMap">地図を表示（Googleマップ）</button>
-  <p class="muted" style="margin:.6rem 0 0">※ 外部サイト（maps.google.com）に接続します。</p>
-</div>
-<p class="muted">※ 駐車場は台数に限りがあります。満車時は近隣のコインパーキングをご利用ください。</p>
+          <p class="lead">地図はクリックで読み込み</p>
+          <button class="btn btn-primary" id="loadMap">地図を表示（Googleマップ）</button>
+          <p class="muted">※ 外部サイト（maps.google.com）に接続します。</p>
+        </div>
+        <p class="muted">※ 駐車場は台数に限りがあります。満車時は近隣のコインパーキングをご利用ください。</p>
       </div>
       <div class="card">
         <h2>営業時間</h2>
@@ -466,11 +287,10 @@ animation:blob2 28s ease-in-out infinite alternate}
   </footer>
 
   <!-- UI extras -->
-  <button id="toTop" aria-label="上へ戻る"
-    style="position:fixed;right:16px;bottom:18px;padding:.7rem .9rem;border:1px solid #ffffff22;border-radius:999px;background:#111;opacity:0;pointer-events:none;transition:opacity .2s;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:999;">↑</button>
-  <dialog id="lightbox" style="padding:0;border:none;background:transparent">
-    <div style="position:fixed;inset:0;background:rgba(0,0,0,.75)"></div>
-    <img id="lightboxImg" alt="" style="position:fixed;max-width:90%;max-height:90%;inset:0;margin:auto;border-radius:12px">
+  <button id="toTop" class="toTop" aria-label="上へ戻る">↑</button>
+  <dialog id="lightbox">
+    <div class="lightbox-backdrop"></div>
+    <img id="lightboxImg" class="lightbox-img" alt="">
   </dialog>
 
   <script>
@@ -506,11 +326,11 @@ animation:blob2 28s ease-in-out infinite alternate}
       target.scrollIntoView({behavior:'smooth', block:'start'});
       const openMenu = document.querySelector('details[role="list"][open]');
       if(openMenu) openMenu.removeAttribute('open');
-      // URLのハッシュを更新（履歴は汚さない）
       history.replaceState(null, '', hash);
     });
   });
-  // クリックで地図読み込み（ネットワーク接続はユーザー操作時にのみ発生）
+
+  // クリックで地図読み込み（ユーザー操作時のみ外部接続）
   const mapbox = document.getElementById('mapbox');
   const loadBtn = document.getElementById('loadMap');
   if(mapbox && loadBtn){
@@ -524,7 +344,8 @@ animation:blob2 28s ease-in-out infinite alternate}
       mapbox.replaceWith(iframe);
     });
   }
-  // ===== Scrollspy (現在地ハイライト) =====
+
+  // Scrollspy（現在地ハイライト）
   {
     const ids = ["about","menu","photos","access","contact"];
     const sections = ids.map(id=>document.getElementById(id)).filter(Boolean);
@@ -540,7 +361,7 @@ animation:blob2 28s ease-in-out infinite alternate}
     sections.forEach(sec=>spy.observe(sec));
   }
 
-  // ===== ライトボックス（写真拡大） =====
+  // ライトボックス（写真拡大）
   {
     const dlg = document.getElementById('lightbox');
     const dlgImg = document.getElementById('lightboxImg');
@@ -553,7 +374,7 @@ animation:blob2 28s ease-in-out infinite alternate}
     }
   }
 
-  // ===== 上部へ戻るボタン＆進捗バー＆パララックス =====
+  // 上部へ戻るボタン＆進捗バー＆パララックス
   {
     const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const toTop = document.getElementById('toTop');
@@ -572,7 +393,7 @@ animation:blob2 28s ease-in-out infinite alternate}
     if(toTop){ toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'})); }
   }
 
-  // ===== 画像のBlur-up（読み込み後にシャープ） =====
+  // 画像のBlur-up（読み込み後にシャープ）
   {
     const imgs = [
       ...document.querySelectorAll('.kv, #photos .photo-grid img, .menu-item img')
@@ -583,7 +404,8 @@ animation:blob2 28s ease-in-out infinite alternate}
       else { img.addEventListener('load', ()=> img.classList.add('loaded')); }
     });
   }
-  // ===== 派手モード（トグル） =====
+
+  // 派手モード（トグル）
   {
     const key = 'flashy-mode';
     const btn = document.getElementById('toggleFlash');
@@ -601,6 +423,6 @@ animation:blob2 28s ease-in-out infinite alternate}
     setMode(initial);
     if(btn){ btn.addEventListener('click', ()=> setMode(!document.documentElement.classList.contains('flashy'))); }
   }
-</script>
+  </script>
 </body>
 </html>
