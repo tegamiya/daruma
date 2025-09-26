@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>担々麺だるま｜公式サイト</title>
-  <meta name="description" content="担々麺だるまの公式サイト。赤・黒の担々麺、辛さ（1/2〜5）調整可。西鉄下大利駅徒歩1分。営業時間・メニュー・アクセスはこちら。" />
+  <meta name="description" content="担々麺だるまの公式サイト。赤・黒の担々麺、辛さ（1〜5）調整可。西鉄下大利駅徒歩1分。営業時間・メニュー・アクセスはこちら。" />
   <link rel="canonical" href="https://your-name.github.io/your-repo/" />
   <meta property="og:title" content="担々麺だるま｜公式サイト" />
   <meta property="og:description" content="胡麻の香り高い担々麺、痺れと辛さが選べる人気店。アクセス・メニュー・営業時間はこちら。" />
@@ -35,7 +35,14 @@
     .brand{display:flex;gap:.6rem;align-items:center}
     .brand a{color:inherit;text-decoration:none}
     .brand a:hover{opacity:1}
-    .logo{width:34px;height:34px;border-radius:8px;background:radial-gradient(circle at 30% 30%,var(--accent),#77140f)}
+    .logo{
+      width:34px; height:34px;
+      border-radius:8px;
+      display:block;
+      object-fit:cover;    /* 画像をはみ出さずにトリミング */
+      object-position:50% 50%;
+      background:none;     /* 以前のグラデ背景を無効化 */
+    }
     .brand h1{font-size:1rem;margin:0;font-weight:700;letter-spacing:.04em}
     nav a{opacity:.9}
     nav a:hover{opacity:1}
@@ -217,8 +224,8 @@ animation:blob2 28s ease-in-out infinite alternate}
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <h1><a href="#main" class="home-link" aria-label="トップへ戻る">担々麺だるま</a></h1>
+      <img class="logo" src="img/daruma.png"  alt="" width="34" height="34" loading="lazy" decoding="async" />        
+      <h1><a href="#main" class="home-link" aria-label="トップへ戻る">担々麺だるま</a></h1>
       </div>
       <nav aria-label="主要メニュー">
         <div class="links">
@@ -242,7 +249,7 @@ animation:blob2 28s ease-in-out infinite alternate}
       </nav>
     </div>
   </header>
-  <div class="marquee" aria-label="お知らせ"><div class="track">🌶️ 辛さ1/2〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma 　　🌶️ 辛さ1/2〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma</div></div>
+  <div class="marquee" aria-label="お知らせ"><div class="track">🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma 　　🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma</div></div>
 
   <!-- Hero -->
   <section class="hero" id="main">
@@ -250,14 +257,14 @@ animation:blob2 28s ease-in-out infinite alternate}
       <div>
         <span class="pill badge">赤・黒の看板担々麺</span>
         <h2 class="title">濃厚ごま×辣油×花椒。<br/>赤と黒、好みで選べる担々麺。</h2>
-        <p class="sub">辛さは <strong>1/2〜5</strong> 段階で調整可。西鉄下大利駅徒歩1分（最新情報はInstagramへ）</p>
+        <p class="sub">辛さは <strong>1〜5</strong> 段階で調整可。西鉄下大利駅徒歩1分（最新情報はInstagramへ）</p>
         <div class="cta">
           <a class="btn btn-primary" href="#menu">人気メニューを見る</a>
           <a class="btn btn-outline" href="#access">アクセスを見る</a>
         </div>
       </div>
       <div>
-        <img class="kv" src="img/tantanmen.jpg" alt="湯気の立つ担々麺の写真" loading="lazy" />>
+        <img class="kv" src="img/tantanmen.jpg" alt="湯気の立つ担々麺の写真" loading="lazy" />
       </div>
     </div>
   </section>
@@ -272,7 +279,7 @@ animation:blob2 28s ease-in-out infinite alternate}
     <div class="container info-grid">
       <div class="card">
         <h2>店舗情報</h2>
-        <p class="lead">担々麺だるまは、赤担々麺・黒担々麺を看板に、辛さは <strong>1/2〜5</strong> 段階で調整可能。花椒の痺れと胡麻のコクをバランスよく仕上げています。</p>
+        <p class="lead">担々麺だるまは、赤担々麺・黒担々麺を看板に、辛さは <strong>1〜5</strong> 段階で調整可能。花椒の痺れと胡麻のコクをバランスよく仕上げています。</p>
         <ul>
           <li>住所：<strong>福岡県大野城市下大利1-15-14</strong></li>
           <li>営業時間：<strong>11:00–14:30 / 17:00–23:30</strong>（変更の可能性あり）</li>
@@ -282,9 +289,9 @@ animation:blob2 28s ease-in-out infinite alternate}
       </div>
       <div class="card">
         <h2>こだわり</h2>
-        <p class="lead">香り→旨味→痺れの三段階で立ち上がる味設計。辛さはハーフ（1/2）から5レベルまで、お好みに合わせて調整いたします。</p>
+        <p class="lead">香り→旨味→痺れの三段階で立ち上がる味設計。辛さはハーフ（1）から5レベルまで、お好みに合わせて調整いたします。</p>
         <ul>
-          <li>辛さ：<span class="pill">1/2〜5</span> まで調整</li>
+          <li>辛さ：<span class="pill">1〜5</span> まで調整</li>
           <li>痺れ：<span class="pill">0〜3</span> まで調整</li>
           <li>麺：中太ストレート</li>
           <li>トッピング：菜の花、肉みそ ほか</li>
@@ -304,7 +311,7 @@ animation:blob2 28s ease-in-out infinite alternate}
           <img src="img/aka.jpg" alt="赤の担々麺" loading="lazy" width="176" height="176"/>
           <div>
             <h3>赤の担々麺 <span class="badge-reco">おすすめ</span></h3>
-            <p class="muted">ほろ苦い菜の花トッピング。王道の旨辛が食欲をそそる！<br>刺激ある辛味に調整可（1/2～5）。</p>
+            <p class="muted">ほろ苦い菜の花トッピング。王道の旨辛が食欲をそそる！<br>刺激ある辛味に調整可（1～5）。</p>
           </div>
           <div class="price">¥1,000</div>
         </div>
@@ -312,7 +319,7 @@ animation:blob2 28s ease-in-out infinite alternate}
           <img src="img/kuro.jpg" alt="黒の担々麺" loading="lazy" width="176" height="176"/>
           <div>
             <h3>黒の担々麺 <span class="badge-reco">おすすめ</span></h3>
-            <p class="muted">ほろ苦い菜の花トッピング。麺もスープも黒胡麻使用！<br>刺激ある辛味に調整可（1/2～5）。</p>
+            <p class="muted">ほろ苦い菜の花トッピング。麺もスープも黒胡麻使用！<br>刺激ある辛味に調整可（1～5）。</p>
           </div>
           <div class="price">¥1,000</div>
         </div>
