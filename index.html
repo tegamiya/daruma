@@ -11,6 +11,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1617093727343-374698792f0b?q=80&w=1200&auto=format&fit=crop" />
   <meta name="format-detection" content="telephone=no" />
+  <!-- 検索除け -->
+  <meta name="robots" content="noindex, nofollow">
 
   <!-- 分離したCSS -->
   <link rel="stylesheet" href="css/styles.css">
@@ -32,6 +34,17 @@
   </script>
 </head>
 <body>
+  <!-- Soft Gate -->
+  <div id="gate" class="gate hidden" aria-modal="true" role="dialog">
+    <form id="gateForm" class="panel" autocomplete="off">
+      <h3 style="margin:0 0 .5rem">閲覧パスワード</h3>
+      <p class="muted" style="margin:0 0 .8rem">一時的に公開を制限しています。</p>
+      <label for="pw" class="muted">Password</label>
+      <input type="password" id="pw" required>
+      <button class="btn btn-primary" type="submit" style="width:100%;margin-top:.8rem">入る</button>
+    </form>
+  </div>
+
   <div class="accent-bar" aria-hidden="true"></div>
   <div id="progress"></div>
   <a href="#main" class="pill skip-link">本文へスキップ</a>
@@ -424,5 +437,50 @@
     if(btn){ btn.addEventListener('click', ()=> setMode(!document.documentElement.classList.contains('flashy'))); }
   }
   </script>
+  <script>
+  /* --- Soft Gate (簡易パスワード) --- */
+  {
+    const ENABLE_GATE = true;
+    const STORE_KEY   = 'gate-ok';
+    const PASSWORD    = '123';
+    const TTL_HOURS   = 0;  // ← 何時間記憶するか
+
+    // URLに ?unlock=… を付けたら自動解除できる裏口（必要なければ削除）
+    const url = new URL(location.href);
+    if (url.searchParams.get('unlock') === PASSWORD) {
+      localStorage.setItem(STORE_KEY, JSON.stringify({ok:1, at:Date.now()}));
+      history.replaceState(null,'',location.pathname);
+    }
+
+    if (ENABLE_GATE) {
+      const gate = document.getElementById('gate');
+      const form = document.getElementById('gateForm');
+      const pw   = document.getElementById('pw');
+
+      const saved = (()=>{ try{return JSON.parse(localStorage.getItem(STORE_KEY)||'');}catch{return null;} })();
+      const fresh = saved && saved.ok===1 && (Date.now() - saved.at) < TTL_HOURS*3600*1000;
+
+      const unlock = () => {
+        localStorage.setItem(STORE_KEY, JSON.stringify({ok:1, at:Date.now()}));
+        gate.remove();
+        document.body.classList.remove('locked');
+      };
+
+      if (!fresh) {
+        gate.classList.remove('hidden');
+        document.body.classList.add('locked');
+        pw.focus();
+        form.addEventListener('submit', (e)=>{
+          e.preventDefault();
+          if (pw.value.trim() === PASSWORD) unlock();
+          else { alert('パスワードが違います'); pw.value=''; pw.focus(); }
+        });
+      } else {
+        gate.remove();
+      }
+    }
+  }
+  </script>
+
 </body>
 </html>
