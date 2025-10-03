@@ -7,7 +7,7 @@
   <meta name="description" content="担々麺だるまの公式サイト。赤・黒の担々麺、辛さ（1〜5）調整可。西鉄下大利駅徒歩1分。営業時間・メニュー・アクセスはこちら。" />
   <link rel="canonical" href="https://your-name.github.io/your-repo/" />
   <meta property="og:title" content="担々麺だるま｜公式サイト" />
-  <meta property="og:description" content="胡麻の香り高い担々麺、痺れと辛さが選べる人気店。アクセス・メニュー・営業時間はこちら。" />
+  <meta property="og:description" content="胡麻の香り高い担々麺、辛さが選べる人気店。アクセス・メニュー・営業時間はこちら。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1617093727343-374698792f0b?q=80&w=1200&auto=format&fit=crop" />
   <meta name="format-detection" content="telephone=no" />
@@ -88,7 +88,7 @@
     <div class="container hero-grid">
       <div>
         <span class="pill badge">赤・黒の看板担々麺</span>
-        <h2 class="title">濃厚ごま×辣油×花椒。<br/>赤と黒、好みで選べる担々麺。</h2>
+        <h2 class="title">濃厚ごま×辣油。<br/>赤と黒、好みで選べる担々麺。</h2>
         <p class="sub">辛さは <strong>1〜5</strong> 段階で調整可。西鉄下大利駅徒歩1分（最新情報はInstagramへ）</p>
         <div class="cta">
           <a class="btn btn-primary" href="#menu">人気メニューを見る</a>
@@ -140,32 +140,66 @@
       <h2>メニュー <span class="note">（税込）</span></h2>
 
       <!-- おすすめ -->
-      <div class="menu-grid mt-14">
-        <div class="card menu-item">
-          <img src="img/aka.jpg" alt="赤の担々麺" loading="lazy" width="176" height="176"/>
-          <div>
-            <h3>赤の担々麺 <span class="badge-reco">おすすめ</span></h3>
-            <p class="muted">ほろ苦い菜の花トッピング。王道の旨辛が食欲をそそる！<br>刺激ある辛味に調整可（1～5）。</p>
+      <!-- 比較カード：推し3品 -->
+      <div class="compare" aria-label="人気3品の比較">
+        <!-- 赤の担々麺 -->
+        <article class="compare-card">
+          <img class="compare-photo" src="img/aka.jpg" alt="赤の担々麺">
+          <div class="compare-body">
+            <div class="compare-title">
+              <h3>赤の担々麺</h3>
+              <div class="price-badge">¥1,000</div>
+            </div>
+            <p class="muted">王道の旨辛。ほろ苦い菜の花トッピング。</p>
+            <div class="badges">
+              <span class="chip">辛さ 1〜5</span>
+              <span class="chip">ごまの香り</span>
+            </div>
           </div>
-          <div class="price">¥1,000</div>
-        </div>
-        <div class="card menu-item">
-          <img src="img/kuro.jpg" alt="黒の担々麺" loading="lazy" width="176" height="176"/>
-          <div>
-            <h3>黒の担々麺 <span class="badge-reco">おすすめ</span></h3>
-            <p class="muted">ほろ苦い菜の花トッピング。麺もスープも黒胡麻使用！<br>刺激ある辛味に調整可（1～5）。</p>
+        </article>
+
+        <!-- 黒の担々麺 -->
+        <article class="compare-card">
+          <img class="compare-photo" src="img/kuro.jpg" alt="黒の担々麺">
+          <div class="compare-body">
+            <div class="compare-title">
+              <h3>黒の担々麺</h3>
+              <div class="price-badge">¥1,000</div>
+            </div>
+            <p class="muted">黒胡麻のコク深さ。麺もスープも黒胡麻使用。</p>
+            <div class="badges">
+              <span class="chip">辛さ 1〜5</span>
+              <span class="chip">黒胡麻リッチ</span>
+            </div>
           </div>
-          <div class="price">¥1,000</div>
-        </div>
+        </article>
+
+        <!-- 菜の花ラーメン -->
+        <article class="compare-card">
+          <img class="compare-photo" src="img/nanohana.jpg" alt="菜の花ラーメン">
+          <div class="compare-body">
+            <div class="compare-title">
+              <h3>菜の花ラーメン</h3>
+              <div class="price-badge">¥900</div>
+            </div>
+            <p class="muted">ほろ苦い菜の花。鶏ガラ醤油のシンプルな旨さ。</p>
+            <div class="badges">
+              <span class="chip">あっさり</span>
+              <span class="chip">辛さなし</span>
+              <span class="chip">菜の花</span>
+            </div>
+          </div>
+        </article>
       </div>
 
+
       <!-- 単品・麺類 -->
-      <div class="card with-thumb mt-16">
+      <!-- <div class="card with-thumb mt-16">
         <img src="img/nanohana.jpg" alt="菜の花ラーメン" loading="lazy" width="176" height="176"/>
         <dl class="price-list">
           <dt>菜の花ラーメン <span class="note">（鶏ガラ醤油ベース）</span></dt><dd>¥900</dd>
         </dl>
-      </div>
+      </div> -->
 
       <!-- ふわトロオムライス -->
       <div class="card with-thumb mt-16">
