@@ -1,396 +1,262 @@
-
+/* ================================
+   Core tokens
+================================== */
 :root{
-  --bg:#0b0b0b; /* 背景(ほぼ黒) */
-  --fg:#f5f5f5; /* 文字(ほぼ白) */
-  --muted:#c4c4c4; /* 補助文字 */
-  --accent:#e23a2e; /* 赤(担々カラー) */
-  --accent-2:#f2c14e; /* 差し色 */
-  --card:#121212; /* カード背景 */
-  --max:1100px;
-  --radius:14px;
-}
-html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(180deg,#0b0b0b,#141414);color:var(--fg);font:16px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif}
-img{max-width:100%;height:auto;border-radius:12px}
-a{color:var(--fg);text-decoration:none}
-.container{width:min(100%,var(--max));margin-inline:auto;padding:0 20px}
-.pill{display:inline-block;padding:.4rem .9rem;border:1px solid #ffffff22;border-radius:999px;background:#ffffff10;backdrop-filter:blur(6px)}
-
-/* ヘッダー */
-header{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.7);backdrop-filter:blur(8px);border-bottom:1px solid #ffffff14}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
-.brand{display:flex;gap:.6rem;align-items:center}
-.brand a{color:inherit;text-decoration:none}
-.brand a:hover{opacity:1}
-.logo{
-  width:34px; height:34px;
-  border-radius:8px;
-  display:block;
-  object-fit:cover;
-  object-position:50% 50%;
-  background:none;
-}
-.brand h1{font-size:1rem;margin:0;font-weight:700;letter-spacing:.04em}
-nav a{opacity:.9}
-nav a:hover{opacity:1}
-
-/* ハンバーガー(詳細) */
-details[role="list"]{position:relative}
-details[role="list"] summary{list-style:none;cursor:pointer; padding:.4rem .75rem;border:1px solid #ffffff20;border-radius:10px}
-details[role="list"] summary::marker, details[role="list"] summary::-webkit-details-marker{display:none}
-details[role="list"] .menu{position:absolute;right:0;top:calc(100% + 8px);background:#191919;border:1px solid #ffffff18;border-radius:12px;min-width:220px;display:flex;flex-direction:column;overflow:hidden}
-details[open][role="list"] .menu a{padding:.9rem 1rem;border-bottom:1px solid #ffffff12}
-details[open][role="list"] .menu a:hover{background:#ffffff08}
-@media(min-width:900px){
-  details[role="list"]{display:none}
-  .links{display:flex;gap:18px}
-}
-@media(max-width:899px){
-  .links{display:none}
+  --bg:#0b0b0b; --fg:#f5f5f5; --muted:#c4c4c4;
+  --accent:#e23a2e; --accent-2:#f2c14e;
+  --card:#121212; --max:1100px; --radius:14px;
+  --motion-fast:160ms; --motion-base:260ms; --easing:cubic-bezier(.22,.61,.36,1);
 }
 
-/* ヒーロー */
-.hero{position:relative;isolation:isolate}
-.hero .container{padding: clamp(40px, 8vw, 70px) 20px 40px}
-.hero-grid{display:grid;gap:24px;align-items:center}
-@media(min-width:900px){
-  .hero-grid{grid-template-columns:1.15fr .85fr}
+/* ================================
+   Base
+================================== */
+html{ scroll-behavior:smooth }
+body{
+  margin:0; color:var(--fg);
+  background:linear-gradient(180deg,#0b0b0b,#141414);
+  font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
 }
-.badge{color:#fff;background:linear-gradient(90deg,var(--accent),#a51c12);box-shadow:0 10px 30px rgba(226,58,46,.35)}
-.title{font-size:clamp(28px,5vw,48px);line-height:1.15;margin:.7rem 0 .3rem;font-weight:800}
-.sub{color:var(--muted);margin:0 0 1.2rem}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:.8rem 1.2rem;border-radius:12px;border:1px solid #ffffff22;font-weight:700;transition: transform var(--motion-fast) var(--easing), opacity var(--motion-fast) var(--easing);}
-.btn-primary{background:var(--accent);border-color:#000;box-shadow:0 10px 25px rgba(226,58,46,.35)}
-.btn-primary:hover{filter:brightness(1.05)}
-.btn:active{ transform: scale(.98); opacity:.95; }
-.btn-outline{background:transparent}
-
-/* セクション共通 */
-section{padding:60px 0;border-top:1px solid #ffffff10;scroll-margin-top:84px}
-section h2{font-size:clamp(22px,3.4vw,34px);margin:0 0 .8rem}
-.lead{color:var(--muted)}
-.card{background:var(--card);border:1px solid #ffffff10;border-radius:var(--radius);padding:22px}
-.card h3:first-child{ margin-top:0; } /* inline style の置き換え */
-
-/* 店舗情報 */
-.info-grid{display:grid;gap:18px}
-@media(min-width:800px){.info-grid{grid-template-columns:1fr 1fr}}
-.kv{aspect-ratio:16/10;object-fit:cover;object-position:center 40%}
-
-/* メニュー */
-.menu-grid{display:grid;gap:16px}
-@media(min-width:720px){.menu-grid{grid-template-columns:repeat(3,1fr)}}
-.menu-item{display:flex;gap:12px;transition: transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing);}
-.menu-item img{width:88px;height:88px;object-fit:cover;border-radius:10px}
-.menu-item h3{margin:.1rem 0;font-size:1.05rem}
-.price{margin-left:auto;font-weight:700}
-.tag{font-size:.78rem;color:#ffd5cf}
-
-/* 写真 */
-.photo-grid{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
-@media(min-width:900px){.photo-grid{grid-template-columns:repeat(4,1fr)}}
-.photo-grid img{aspect-ratio:1/1;object-fit:cover; cursor: zoom-in; }
-
-/* アクセス */
-.map{border:0;width:100%;height:380px;border-radius:14px}
-.access{display:grid;gap:18px}
-@media(min-width:900px){.access{grid-template-columns:1.1fr .9fr}}
-
-/* お問い合わせ */
-.contact-actions{display:flex;gap:12px;flex-wrap:wrap}
-.contact-actions a{display:inline-flex;align-items:center;gap:.5rem}
-
-/* フッター */
-footer{padding:40px 0;color:#bdbdbd;text-align:center;border-top:1px solid #ffffff10}
-footer a{color:#e7e7e7}
-
-/* 細かなアクセント */
-.accent-bar{height:3px;background:linear-gradient(90deg,var(--accent),transparent,var(--accent-2))}
-.muted{color:var(--muted)}
-
-/* === Motion add-ons === */
-:root{ --motion-fast:160ms; --motion-base:260ms; --easing:cubic-bezier(.22,.61,.36,1); }
-.reveal-base{ opacity:0; transform:translateY(10px); }
-.reveal-in{ opacity:1; transform:none; transition: opacity var(--motion-base) var(--easing), transform var(--motion-base) var(--easing); }
-.menu-item:hover{ transform: translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.25); }
-header{ transition: padding var(--motion-fast) var(--easing), background var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing); }
-header.scrolled{ background: rgba(11,11,11,.85); box-shadow: 0 6px 20px rgba(0,0,0,.25); }
-header.scrolled .nav{ padding:.35rem 0; }
-
-/* === UX add-ons === */
-/* Scrollspy current section indicator */
-nav a.active{ position:relative; }
-nav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:2px; }
-/* Top progress bar */
-#progress{ position:fixed; top:0; left:0; height:3px; width:0; z-index:999; background:linear-gradient(90deg,var(--accent),var(--accent-2)); }
-/* Blur-up images */
-.blur-up{ filter:blur(8px); transform:scale(1.02); transition:filter 400ms var(--easing), transform 400ms var(--easing); }
-.blur-up.loaded{ filter:blur(0); transform:none; }
-
-/* === Flashy mode (toggleable) === */
-body.flashy::before, body.flashy::after, html.flashy body::before, html.flashy body::after{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;filter:blur(40px);opacity:.18}
-body.flashy::before, html.flashy body::before{background:
-  radial-gradient(600px 300px at 20% 20%, rgba(226,58,46,.30), transparent 60%),
-  radial-gradient(500px 250px at 80% 10%, rgba(242,193,78,.22), transparent 60%);
-animation:blob1 24s ease-in-out infinite alternate}
-body.flashy::after, html.flashy body::after{background:
-  radial-gradient(520px 260px at 70% 80%, rgba(226,58,46,.22), transparent 60%);
-animation:blob2 28s ease-in-out infinite alternate}
-@keyframes blob1{to{transform:translate(20px,10px) scale(1.05)}}
-@keyframes blob2{to{transform:translate(-30px,-10px) scale(1.08)}}
-.flashy .title{background:linear-gradient(90deg,#fff,var(--accent),var(--accent-2),#fff);background-size:300% 100%;-webkit-background-clip:text;color:transparent;animation:shine 5s linear infinite}
-@keyframes shine{0%{background-position:0 0}100%{background-position:300% 0}}
-.flashy .btn-primary{position:relative;overflow:hidden}
-.flashy .btn-primary::after{content:"";position:absolute;top:-120%;bottom:-120%;left:-30%;width:30%;transform:translateX(-120%) rotate(20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);animation:sheen 3.2s infinite}
-@keyframes sheen{to{transform:translateX(500%) rotate(20deg)}}
-.flashy .menu-item:hover{transform:translateY(-8px) rotate(-.6deg) scale(1.02);box-shadow:0 14px 30px rgba(0,0,0,.35)}
-.flashy #photos .photo-grid img{transition: transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing)}
-.flashy #photos .photo-grid img:hover{transform:translateY(-6px) rotate(.8deg) scale(1.02);box-shadow:0 18px 30px rgba(0,0,0,.35)}
-
-/* marquee notice */
-.marquee{overflow:hidden;border-top:1px solid #ffffff12;border-bottom:1px solid #ffffff12;background:#111}
-.marquee .track{display:inline-block;white-space:nowrap;padding:.4rem 0;animation:scroll 22s linear infinite}
-.marquee:hover .track{animation-play-state:paused}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* wave separator */
-.wave svg{display:block;width:100%;height:auto}
-.wave path{fill:#111;opacity:.8}
-
-/* 動きを減らす設定に対応 */
-@media (prefers-reduced-motion: reduce){
-  * { animation: none !important; transition: none !important; }
-  .reveal-base{ opacity:1 !important; transform:none !important; }
-  .marquee .track{animation:none}
+img{ max-width:100%; height:auto; border-radius:12px }
+a{ color:var(--fg); text-decoration:none }
+.container{ width:min(100%,var(--max)); margin-inline:auto; padding:0 20px }
+.pill{ display:inline-block; padding:.4rem .9rem; border:1px solid #ffffff22; border-radius:999px; background:#ffffff10; backdrop-filter:blur(6px) }
+.muted{ color:var(--muted) }
+.btn{
+  padding:.8rem 1.2rem; border-radius:12px; border:1px solid #ffffff22; font-weight:700;
+  transition:transform var(--motion-fast) var(--easing), opacity var(--motion-fast) var(--easing);
 }
+.btn:active{ transform:scale(.98); opacity:.95 }
+.btn-primary{ background:var(--accent); border-color:#000; box-shadow:0 10px 25px rgba(226,58,46,.35) }
+.btn-primary:hover{ filter:brightness(1.05) }
+.btn-outline{ background:transparent }
 
-/* トグルボタンの視認性 */
-#toggleFlash{color:#fff !important}
-#toggleFlash:focus-visible{outline:2px solid #fff; outline-offset:2px}
+/* Utilities */
+.mt-16{ margin-top:16px } .note{ font-size:.9rem; color:var(--muted) }
+.note-block{ margin:.2rem 0 1rem }
+.skip-link{ position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden }
+.skip-link:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:1000 }
 
-/* 価格リスト等 */
-.price-list{display:grid;grid-template-columns:1fr auto;gap:8px 14px;align-items:baseline}
-.price-list dt{font-weight:700}
-.price-list dd{margin:0;justify-self:end;font-weight:700}
-.note{font-size:.9rem;color:var(--muted)}
-.badge-reco{display:inline-block;margin-left:.5rem;font-size:.78rem;padding:.15rem .5rem;border-radius:999px;background:#ffffff10;border:1px solid #ffffff22}
-.chili-grid{display:grid;gap:12px}
-@media(min-width:720px){.chili-grid{grid-template-columns:repeat(3,1fr)}}
-.chili{background:var(--card);border:1px solid #ffffff14;border-radius:12px;padding:14px}
-.chili h4{margin:.2rem 0 .4rem;font-size:1rem}
-
-/* Responsive image sizing (CSS-only) */
-@media(max-width: 719px){
-  .menu-item img{ width:72px; height:72px; }
+/* ================================
+   Header / Nav
+================================== */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(11,11,11,.7); backdrop-filter:blur(8px);
+  border-bottom:1px solid #ffffff14;
+  transition:padding var(--motion-fast) var(--easing), background var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing);
 }
-@media(min-width: 1100px){
-  .menu-item img{ width:104px; height:104px; }
-}
+header.scrolled{ background:rgba(11,11,11,.85); box-shadow:0 6px 20px rgba(0,0,0,.25) }
+.nav{ display:flex; align-items:center; justify-content:space-between; padding:.6rem 0 }
+.brand{ display:flex; gap:.6rem; align-items:center }
+.brand h1{ font-size:1rem; margin:0; font-weight:700; letter-spacing:.04em }
+.logo{ width:34px; height:34px; border-radius:8px; display:block; object-fit:cover; object-position:50% 50%; background:none }
+nav a{ opacity:.9 } nav a:hover{ opacity:1 }
+nav a.active{ position:relative }
+nav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:2px }
 
-/* Utility / replace inline styles */
-.mt-14{ margin-top:14px; }
-.mt-16{ margin-top:16px; }
-.note-block{ margin:.2rem 0 1rem; }
-
-/* Skip link (replaces inline style) */
-.skip-link{
-  position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;
+/* Hamburger */
+details[role="list"]{ position:relative }
+details[role="list"] summary{ list-style:none; cursor:pointer; padding:.4rem .75rem; border:1px solid #ffffff20; border-radius:10px }
+details[role="list"] summary::marker, details[role="list"] summary::-webkit-details-marker{ display:none }
+details[role="list"] .menu{
+  position:absolute; right:0; top:calc(100% + 8px);
+  background:#191919; border:1px solid #ffffff18; border-radius:12px;
+  min-width:220px; display:flex; flex-direction:column; overflow:hidden
 }
-.skip-link:focus{
-  position:fixed; left:16px; top:16px; width:auto; height:auto;
-  z-index:1000;
-}
+details[open][role="list"] .menu a{ padding:.9rem 1rem; border-bottom:1px solid #ffffff12 }
+details[open][role="list"] .menu a:hover{ background:#ffffff08 }
+@media (min-width:900px){ details[role="list"]{ display:none } .links{ display:flex; gap:18px } }
+@media (max-width:899px){ .links{ display:none } }
 
-/* ToTop button (replaces inline style) */
-.toTop{
-  position:fixed; right:16px; bottom:18px; padding:.7rem .9rem;
-  border:1px solid #ffffff22; border-radius:999px; background:#111;
-  opacity:0; pointer-events:none; transition:opacity .2s;
-  box-shadow:0 6px 18px rgba(0,0,0,.25); z-index:999;
-}
-
-/* Lightbox (replaces inline styles) */
-#lightbox{ padding:0; border:none; background:transparent; }
-.lightbox-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.75); }
-.lightbox-img{ position:fixed; max-width:90%; max-height:90%; inset:0; margin:auto; border-radius:12px; }
-
-/* Map placeholder spacing */
-.map-placeholder p.lead{ margin:0 0 .6rem; }
-.map-placeholder p.muted{ margin:.6rem 0 0; }
-
-/* ==== Soft Gate styles ==== */
-body.locked{ overflow:hidden; }
-.gate{ position:fixed; inset:0; background:rgba(0,0,0,.82); display:grid; place-items:center; z-index:10000; }
-.gate.hidden{ display:none; }
-.gate .panel{
-  width:min(90vw,450px); background:#121212; color:var(--fg);
-  border:1px solid #ffffff22; border-radius:12px; padding:20px;
-  box-shadow:0 20px 50px rgba(0,0,0,.45);
-}
-.gate input{
-  width:90%; padding:.8rem 1rem; border-radius:10px; border:1px solid #ffffff22;
-  background:#0b0b0b; color:#fff; margin-top:.35rem;
-}
-
-/* === Hero bigger & nicer === */
-@media (min-width:900px){
-  .hero-grid{ grid-template-columns: 1.05fr 1.25fr; } /* 画像側を広く */
-}
+/* ================================
+   Hero
+================================== */
+.hero{ position:relative; isolation:isolate }
+.hero .container{ padding:clamp(28px,6vw,56px) 20px 20px } /* 下余白を詰めた最終値 */
+.hero-grid{ display:grid; gap:24px; align-items:center }
+@media (min-width:900px){ .hero-grid{ grid-template-columns:1.05fr 1.25fr } }
+.badge{ color:#fff; background:linear-gradient(90deg,var(--accent),#a51c12); box-shadow:0 10px 30px rgba(226,58,46,.35) }
+.title{ font-size:clamp(28px,5vw,48px); line-height:1.15; margin:.7rem 0 .3rem; font-weight:800 }
+.sub{ color:var(--muted); margin:0 0 1.2rem }
 .kv{
-  aspect-ratio: 16/9;                 /* 少し背を高く */
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.35);
-  max-height: clamp(300px, 58vh, 560px);
+  aspect-ratio:16/9; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.35);
+  max-height:clamp(300px,58vh,560px); object-fit:cover; object-position:center 40%;
 }
 
-/* === Menu readability === */
-.menu-grid{ gap:18px; }
-.menu-item{ align-items:center; gap:16px; }
-.menu-item img{ width:96px; height:96px; }               /* 画像を少し大きく */
-@media (min-width:1100px){ .menu-item img{ width:120px; height:120px; } }
-.menu-item h3{ font-size: clamp(1.06rem, 1.6vw, 1.24rem); }
-.menu-item .muted{ font-size:.95rem; line-height:1.55; }
-.price{
-  margin-left:auto; font-weight:800; text-align:right; min-width:4.8ch;
-  background:#ffffff10; border:1px solid #ffffff20; padding:.25rem .6rem; border-radius:.6rem;
-}
+/* Wave */
+.wave svg{ display:block; width:100%; height:64px } .wave{ margin-top:-10px }
+.wave path{ fill:#111; opacity:.8 }
 
-/* サムネ左・内容右のカード（菜の花/オムライス用） */
-.card.with-thumb{
-  display:grid; grid-template-columns:auto 1fr; align-items:center; gap:14px;
-}
-.card.with-thumb > img{
-  width:112px; height:112px; object-fit:cover; border-radius:10px;
-}
-@media (min-width:900px){
-  .card.with-thumb > img{ width:140px; height:140px; }
-}
-@media (max-width:719px){
-  .card.with-thumb{ grid-template-columns:1fr; }
-  .card.with-thumb > img{ width:100%; height:auto; aspect-ratio:16/10; }
-}
+/* ================================
+   Sections / Cards
+================================== */
+section{ padding:60px 0; border-top:1px solid #ffffff10; scroll-margin-top:84px }
+section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値に統一 */
+.lead{ color:var(--muted); margin:.05rem 0 .45rem }
+.card{ background:var(--card); border:1px solid #ffffff10; border-radius:var(--radius); padding:22px }
+.card h3:first-child{ margin-top:0 }
+.accent-bar{ height:3px; background:linear-gradient(90deg,var(--accent),transparent,var(--accent-2)) }
 
-/* 価格リストの行間ちょい拡張 */
-.price-list{ row-gap:10px; }
-.price-list dt, .price-list dd{ font-size:1rem; }
-
-/* （任意）レイアウト幅を少し広げたい場合：コメントアウト外して使用
-@media (min-width:1200px){ :root{ --max:1200px; } }
-*/
-
-/* ==== Compare Cards (赤/黒/菜の花) ==== */
-.compare{ display:grid; gap:16px; margin-top:14px; }
-@media(min-width:900px){ .compare{ grid-template-columns:repeat(3,1fr); } }
-
-.compare-card{
-  background:var(--card);
-  border:1px solid #ffffff14; border-radius:16px; overflow:hidden;
-  box-shadow:0 18px 40px rgba(0,0,0,.28);
-  transition:transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing);
-}
-.compare-card:hover{ transform:translateY(-6px); box-shadow:0 26px 60px rgba(0,0,0,.36); }
-
-.compare-photo{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
-.compare-body{ padding:16px 16px 18px; }
-
-.compare-title{ display:flex; align-items:baseline; gap:10px; justify-content:space-between; }
-.compare-title h3{ margin:.1rem 0; font-size:clamp(1.05rem,1.7vw,1.25rem); }
-
-.price-badge{
-  font-size:1.02rem; padding:.3rem .7rem; border-radius:.6rem;
-  background:#ffffff10; border:1px solid #ffffff22; white-space:nowrap;
-}
-
-.badges{ display:flex; flex-wrap:wrap; gap:8px; margin:.55rem 0 .55rem; }
-
-.chip{
-  font-size:.82rem; padding:.18rem .55rem; border-radius:999px;
-  background:#ffffff0d; border:1px solid #ffffff20;
-}
-
-.btn-block{ display:block; width:100%; text-align:center; margin-top:.8rem; }
-
-/* === tighten spacing between hero → wave → #about === */
-.hero .container{ padding: clamp(28px, 6vw, 56px) 20px 20px; } /* 下の余白を40px→20pxへ */
-.wave svg{ height: 64px; }                                     /* 波の高さを半分くらいに */
-.wave{ margin-top:-10px; }                                      /* ほんの少し重ねて詰める */
-#about{ padding-top: 32px; border-top:0; margin-top:-8px; }     /* 1ブロック分短縮＆罫線削除 */
-
-/* モバイルはさらに詰め気味（お好みで数値調整OK） */
-@media (max-width: 719px){
-  .hero .container{ padding: 28px 20px 14px; }
-  .wave svg{ height: 44px; }
-  #about{ padding-top: 24px; margin-top:-6px; }
-}
-
-/* ==== #about（店舗情報／こだわり）をスッキリ整える ==== */
-
-/* カードのトーンを少し締める＆上部に細いアクセントライン */
+/* About grid（左右カードは現状維持・トーンのみ調整） */
+.info-grid{ display:grid; gap:14px; align-items:stretch }
+@media (min-width:800px){ .info-grid{ grid-template-columns:1fr 1fr } }
 #about .card{
-  position:relative;
-  padding:18px 18px 16px;
-  background:linear-gradient(180deg,#141414,#0f0f0f);
-  border:1px solid #ffffff14;
+  position:relative; padding:18px 18px 16px;
+  background:linear-gradient(180deg,#141414,#0f0f0f); border:1px solid #ffffff14;
 }
 #about .card::after{
   content:""; position:absolute; left:0; right:0; top:0; height:2px;
-  background:linear-gradient(90deg,var(--accent),transparent,var(--accent-2));
-  opacity:.48;
+  background:linear-gradient(90deg,var(--accent),transparent,var(--accent-2)); opacity:.48;
 }
-#about h2{ margin:0 0 .55rem; font-size:clamp(22px,2.6vw,28px); }
-#about .lead{ margin:.1rem 0 .55rem; }
-
-/* 2カードの高さを揃える＆間隔を少しだけ詰める */
-.info-grid{ gap:14px; align-items:stretch; }
-#about .info-grid .card{ height:100%; display:flex; flex-direction:column; }
-
-/* —— 店舗情報（左カード）：リストをデスクトップで2列に —— */
+#about .info-grid .card{ height:100%; display:flex; flex-direction:column }
 #about .info-grid .card:first-child ul{
-  list-style:none; padding:0; margin:.2rem 0 0;
-  display:grid; gap:8px;
+  list-style:none; padding:0; margin:.1rem 0 0; display:grid; gap:6px;
+  grid-template-columns:1fr; /* PCでも1列に固定 */
 }
 #about .info-grid .card:first-child li{
-  padding:6px 0; border-top:1px solid #ffffff10;
+  padding:4px 0; border-top:1px solid #ffffff12; line-height:1.55;
 }
-#about .info-grid .card:first-child li strong{ font-weight:800; }
-@media (min-width: 900px){
-  #about .info-grid .card:first-child ul{
-    grid-template-columns:1fr 1fr; column-gap:16px;
-  }
-  /* 2列の最上段は罫線なしにして軽く */
-  #about .info-grid .card:first-child li:nth-child(-n+2){ border-top:none; }
-}
-
-/* —— こだわり（右カード）：箇条書きを“チップ風”で横並びに —— */
+#about .info-grid .card:first-child li:first-child{ border-top:none }
+/* 右カード：チップ風 */
 #about .info-grid .card:nth-child(2) ul{
-  list-style:none; padding:0; margin:.35rem 0 0;
-  display:flex; flex-wrap:wrap; gap:10px 12px;
+  list-style:none; padding:0; margin:.35rem 0 0; display:flex; flex-wrap:wrap; gap:10px 12px;
 }
-#about .info-grid .card:nth-child(2) li{
-  padding:.35rem .6rem; border:1px solid #ffffff14;
-  background:#ffffff07; border-radius:10px;
+#about .info-grid .card:nth-child(2) li{ padding:.35rem .6rem; border:1px solid #ffffff14; background:#ffffff07; border-radius:10px }
+#about .info-grid .card:nth-child(2) li .pill{ background:transparent; border:none; padding:0; backdrop-filter:none }
+
+/* ================================
+   Menu
+================================== */
+.menu-grid{ display:grid; gap:18px } /* 1回の定義に統一 */
+
+/* compare cards */
+.compare{ display:grid; gap:16px; margin-top:14px }
+@media (min-width:900px){ .compare{ grid-template-columns:repeat(3,1fr) } }
+.compare-card{
+  background:var(--card); border:1px solid #ffffff14; border-radius:16px; overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,.28);
+  transition:transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing);
 }
-/* 中の .pill は装飾を抑えて馴染ませる */
-#about .info-grid .card:nth-child(2) li .pill{
-  background:transparent; border:none; padding:0; backdrop-filter:none;
+.compare-card:hover{ transform:translateY(-6px); box-shadow:0 26px 60px rgba(0,0,0,.36) }
+.compare-photo{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block }
+.compare-body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:.55rem }
+.compare-title{ display:flex; align-items:baseline; gap:10px; justify-content:space-between }
+.compare-title h3{ margin:.1rem 0; font-size:clamp(1.05rem,1.7vw,1.25rem) }
+.price-badge{ font-size:1.02rem; padding:.3rem .7rem; border-radius:.6rem; background:#ffffff10; border:1px solid #ffffff22; white-space:nowrap }
+.badges{ display:flex; flex-wrap:wrap; gap:8px; margin:.2rem 0 0 }
+
+/* with-thumb cards（オムライス等） */
+.card.with-thumb{ display:grid; grid-template-columns:auto 1fr; align-items:center; gap:14px }
+.card.with-thumb > img{ width:112px; height:112px; object-fit:cover; border-radius:10px }
+@media (min-width:900px){ .card.with-thumb > img{ width:140px; height:140px } }
+@media (max-width:719px){
+  .card.with-thumb{ grid-template-columns:1fr }
+  .card.with-thumb > img{ width:100%; height:auto; aspect-ratio:16/10 }
 }
 
-/* === 店舗情報（左カード）：1列＆コンパクト === */
-#about .info-grid .card:first-child ul{
-  grid-template-columns: 1fr !important; /* PCでも常に1列 */
-  gap: 6px;                               /* 行間の詰め */
-  margin: .1rem 0 0;                      /* 上マージンを控えめに */
+/* price list */
+.price-list{ display:grid; grid-template-columns:1fr auto; gap:10px 14px; align-items:baseline }
+.price-list dt{ font-weight:700 } .price-list dd{ margin:0; justify-self:end; font-weight:700 }
+
+/* chili table */
+.chili-grid{ display:grid; gap:12px }
+@media (min-width:720px){ .chili-grid{ grid-template-columns:repeat(3,1fr) } }
+.chili{ background:var(--card); border:1px solid #ffffff14; border-radius:12px; padding:14px }
+.chili h4{ margin:.2rem 0 .4rem; font-size:1rem }
+
+/* ================================
+   Photos
+================================== */
+.photo-grid{ display:grid; gap:10px; grid-template-columns:repeat(2,1fr) }
+@media (min-width:900px){ .photo-grid{ grid-template-columns:repeat(4,1fr) } }
+.photo-grid img{ aspect-ratio:1/1; object-fit:cover; cursor:zoom-in }
+
+/* ================================
+   Access / Contact / Footer
+================================== */
+.map{ border:0; width:100%; height:380px; border-radius:14px }
+.access{ display:grid; gap:18px } @media (min-width:900px){ .access{ grid-template-columns:1.1fr .9fr } }
+.contact-actions{ display:flex; gap:12px; flex-wrap:wrap } .contact-actions a{ display:inline-flex; align-items:center; gap:.5rem }
+footer{ padding:40px 0; color:#bdbdbd; text-align:center; border-top:1px solid #ffffff10 } footer a{ color:#e7e7e7 }
+.map-placeholder p.lead{ margin:0 0 .6rem } .map-placeholder p.muted{ margin:.6rem 0 0 }
+
+/* ================================
+   Motion / UX
+================================== */
+.reveal-base{ opacity:0; transform:translateY(10px) }
+.reveal-in{ opacity:1; transform:none; transition:opacity var(--motion-base) var(--easing), transform var(--motion-base) var(--easing) }
+#progress{ position:fixed; top:0; left:0; height:3px; width:0; z-index:999; background:linear-gradient(90deg,var(--accent),var(--accent-2)) }
+.toTop{
+  position:fixed; right:16px; bottom:18px; padding:.7rem .9rem; border:1px solid #ffffff22; border-radius:999px; background:#111;
+  opacity:0; pointer-events:none; transition:opacity .2s; box-shadow:0 6px 18px rgba(0,0,0,.25); z-index:999;
 }
-#about .info-grid .card:first-child li{
-  padding: 4px 0;                         /* 行の上下余白を小さく */
-  border-top: 1px solid #ffffff12;
-  line-height: 1.55;                      /* 読みやすさは確保 */
-}
-#about .info-grid .card:first-child li:first-child{
-  border-top: none;                       /* 先頭行は罫線なし */
+.blur-up{ filter:blur(8px); transform:scale(1.02); transition:filter 400ms var(--easing), transform 400ms var(--easing) }
+.blur-up.loaded{ filter:blur(0); transform:none }
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important }
+  .reveal-base{ opacity:1 !important; transform:none !important }
 }
 
-/* 見出しとリード文も少しだけ詰める（任意で調整OK） */
-#about h2{ margin: 0 0 .45rem; }
-#about .lead{ margin: .05rem 0 .45rem; }
+/* ================================
+   Flashy mode
+================================== */
+body.flashy::before, body.flashy::after, html.flashy body::before, html.flashy body::after{
+  content:""; position:fixed; inset:-20%; z-index:-1; pointer-events:none; filter:blur(40px); opacity:.18
+}
+body.flashy::before, html.flashy body::before{
+  background:radial-gradient(600px 300px at 20% 20%, rgba(226,58,46,.30), transparent 60%), radial-gradient(500px 250px at 80% 10%, rgba(242,193,78,.22), transparent 60%);
+  animation:blob1 24s ease-in-out infinite alternate
+}
+body.flashy::after, html.flashy body::after{
+  background:radial-gradient(520px 260px at 70% 80%, rgba(226,58,46,.22), transparent 60%);
+  animation:blob2 28s ease-in-out infinite alternate
+}
+@keyframes blob1{ to{ transform:translate(20px,10px) scale(1.05) } }
+@keyframes blob2{ to{ transform:translate(-30px,-10px) scale(1.08) } }
+.flashy .title{ background:linear-gradient(90deg,#fff,var(--accent),var(--accent-2),#fff); background-size:300% 100%; -webkit-background-clip:text; color:transparent; animation:shine 5s linear infinite }
+@keyframes shine{ 0%{ background-position:0 0 } 100%{ background-position:300% 0 } }
+.flashy .btn-primary{ position:relative; overflow:hidden }
+.flashy .btn-primary::after{
+  content:""; position:absolute; top:-120%; bottom:-120%; left:-30%; width:30%; transform:translateX(-120%) rotate(20deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent); animation:sheen 3.2s infinite
+}
+@keyframes sheen{ to{ transform:translateX(500%) rotate(20deg) } }
+.flashy #photos .photo-grid img{ transition:transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing) }
+.flashy #photos .photo-grid img:hover{ transform:translateY(-6px) rotate(.8deg) scale(1.02); box-shadow:0 18px 30px rgba(0,0,0,.35) }
+#toggleFlash{ color:#fff !important } #toggleFlash:focus-visible{ outline:2px solid #fff; outline-offset:2px }
+
+/* ================================
+   Marquee
+================================== */
+.marquee{ overflow:hidden; border-top:1px solid #ffffff12; border-bottom:1px solid #ffffff12; background:#111 }
+.marquee .track{ display:inline-block; white-space:nowrap; padding:.4rem 0; animation:scroll 22s linear infinite }
+.marquee:hover .track{ animation-play-state:paused }
+@keyframes scroll{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
+
+/* ================================
+   Lightbox Dialog
+================================== */
+#lightbox{ padding:0; border:none; background:transparent }
+.lightbox-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.75) }
+.lightbox-img{ position:fixed; max-width:90%; max-height:90%; inset:0; margin:auto; border-radius:12px }
+
+/* ================================
+   Soft Gate
+================================== */
+body.locked{ overflow:hidden }
+.gate{ position:fixed; inset:0; background:rgba(0,0,0,.82); display:grid; place-items:center; z-index:10000 }
+.gate.hidden{ display:none }
+.gate .panel{
+  width:min(90vw,450px); background:#121212; color:var(--fg);
+  border:1px solid #ffffff22; border-radius:12px; padding:20px; box-shadow:0 20px 50px rgba(0,0,0,.45)
+}
+.gate input{
+  width:100%; padding:.8rem 1rem; border-radius:10px; border:1px solid #ffffff22;
+  background:#0b0b0b; color:#fff; margin-top:.35rem;
+}
+
+/* ヒーローの「人気メニューを見る」だけシーン効果を無効化 */
+.flashy .hero .btn-primary::after{ content:none; }
