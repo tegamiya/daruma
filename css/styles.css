@@ -323,3 +323,74 @@ body.locked{ overflow:hidden; }
   .wave svg{ height: 44px; }
   #about{ padding-top: 24px; margin-top:-6px; }
 }
+
+/* ==== #about（店舗情報／こだわり）をスッキリ整える ==== */
+
+/* カードのトーンを少し締める＆上部に細いアクセントライン */
+#about .card{
+  position:relative;
+  padding:18px 18px 16px;
+  background:linear-gradient(180deg,#141414,#0f0f0f);
+  border:1px solid #ffffff14;
+}
+#about .card::after{
+  content:""; position:absolute; left:0; right:0; top:0; height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent,var(--accent-2));
+  opacity:.48;
+}
+#about h2{ margin:0 0 .55rem; font-size:clamp(22px,2.6vw,28px); }
+#about .lead{ margin:.1rem 0 .55rem; }
+
+/* 2カードの高さを揃える＆間隔を少しだけ詰める */
+.info-grid{ gap:14px; align-items:stretch; }
+#about .info-grid .card{ height:100%; display:flex; flex-direction:column; }
+
+/* —— 店舗情報（左カード）：リストをデスクトップで2列に —— */
+#about .info-grid .card:first-child ul{
+  list-style:none; padding:0; margin:.2rem 0 0;
+  display:grid; gap:8px;
+}
+#about .info-grid .card:first-child li{
+  padding:6px 0; border-top:1px solid #ffffff10;
+}
+#about .info-grid .card:first-child li strong{ font-weight:800; }
+@media (min-width: 900px){
+  #about .info-grid .card:first-child ul{
+    grid-template-columns:1fr 1fr; column-gap:16px;
+  }
+  /* 2列の最上段は罫線なしにして軽く */
+  #about .info-grid .card:first-child li:nth-child(-n+2){ border-top:none; }
+}
+
+/* —— こだわり（右カード）：箇条書きを“チップ風”で横並びに —— */
+#about .info-grid .card:nth-child(2) ul{
+  list-style:none; padding:0; margin:.35rem 0 0;
+  display:flex; flex-wrap:wrap; gap:10px 12px;
+}
+#about .info-grid .card:nth-child(2) li{
+  padding:.35rem .6rem; border:1px solid #ffffff14;
+  background:#ffffff07; border-radius:10px;
+}
+/* 中の .pill は装飾を抑えて馴染ませる */
+#about .info-grid .card:nth-child(2) li .pill{
+  background:transparent; border:none; padding:0; backdrop-filter:none;
+}
+
+/* === 店舗情報（左カード）：1列＆コンパクト === */
+#about .info-grid .card:first-child ul{
+  grid-template-columns: 1fr !important; /* PCでも常に1列 */
+  gap: 6px;                               /* 行間の詰め */
+  margin: .1rem 0 0;                      /* 上マージンを控えめに */
+}
+#about .info-grid .card:first-child li{
+  padding: 4px 0;                         /* 行の上下余白を小さく */
+  border-top: 1px solid #ffffff12;
+  line-height: 1.55;                      /* 読みやすさは確保 */
+}
+#about .info-grid .card:first-child li:first-child{
+  border-top: none;                       /* 先頭行は罫線なし */
+}
+
+/* 見出しとリード文も少しだけ詰める（任意で調整OK） */
+#about h2{ margin: 0 0 .45rem; }
+#about .lead{ margin: .05rem 0 .45rem; }
