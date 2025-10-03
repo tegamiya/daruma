@@ -232,3 +232,49 @@ body.locked{ overflow:hidden; }
   width:90%; padding:.8rem 1rem; border-radius:10px; border:1px solid #ffffff22;
   background:#0b0b0b; color:#fff; margin-top:.35rem;
 }
+
+/* === Hero bigger & nicer === */
+@media (min-width:900px){
+  .hero-grid{ grid-template-columns: 1.05fr 1.25fr; } /* 画像側を広く */
+}
+.kv{
+  aspect-ratio: 16/9;                 /* 少し背を高く */
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  max-height: clamp(300px, 58vh, 560px);
+}
+
+/* === Menu readability === */
+.menu-grid{ gap:18px; }
+.menu-item{ align-items:center; gap:16px; }
+.menu-item img{ width:96px; height:96px; }               /* 画像を少し大きく */
+@media (min-width:1100px){ .menu-item img{ width:120px; height:120px; } }
+.menu-item h3{ font-size: clamp(1.06rem, 1.6vw, 1.24rem); }
+.menu-item .muted{ font-size:.95rem; line-height:1.55; }
+.price{
+  margin-left:auto; font-weight:800; text-align:right; min-width:4.8ch;
+  background:#ffffff10; border:1px solid #ffffff20; padding:.25rem .6rem; border-radius:.6rem;
+}
+
+/* サムネ左・内容右のカード（菜の花/オムライス用） */
+.card.with-thumb{
+  display:grid; grid-template-columns:auto 1fr; align-items:center; gap:14px;
+}
+.card.with-thumb > img{
+  width:112px; height:112px; object-fit:cover; border-radius:10px;
+}
+@media (min-width:900px){
+  .card.with-thumb > img{ width:140px; height:140px; }
+}
+@media (max-width:719px){
+  .card.with-thumb{ grid-template-columns:1fr; }
+  .card.with-thumb > img{ width:100%; height:auto; aspect-ratio:16/10; }
+}
+
+/* 価格リストの行間ちょい拡張 */
+.price-list{ row-gap:10px; }
+.price-list dt, .price-list dd{ font-size:1rem; }
+
+/* （任意）レイアウト幅を少し広げたい場合：コメントアウト外して使用
+@media (min-width:1200px){ :root{ --max:1200px; } }
+*/
