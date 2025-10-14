@@ -2,10 +2,28 @@
    Core tokens
 ================================== */
 :root{
+  /* Legacy tokens (kept for compatibility) */
   --bg:#0b0b0b; --fg:#f5f5f5; --muted:#c4c4c4;
   --accent:#e23a2e; --accent-2:#f2c14e;
   --card:#121212; --max:1100px; --radius:14px;
   --motion-fast:160ms; --motion-base:260ms; --easing:cubic-bezier(.22,.61,.36,1);
+
+  /* New standardized color tokens */
+  --color-bg:#0b0b0b; --color-bg-2:#141414; --color-card:#121212;
+  --color-fg:#f5f5f5; --color-muted:#c4c4c4;
+  --color-accent:#e23a2e; --color-accent-2:#f2c14e;
+  --color-surface-1:#111; --color-surface-2:#191919;
+  --color-border-weak:#ffffff10; /* subtle */
+  --color-border:#ffffff12; /* default */
+  --color-border-strong:#ffffff14;
+  --color-border-xstrong:#ffffff18;
+  --color-border-outline:#ffffff20;
+  --color-border-heavy:#ffffff22;
+  --color-note-bg:#ffffff10; --color-note-bg-weak:#ffffff08;
+  --color-text-faint:#bdbdbd; --color-text-secondary:#e7e7e7;
+
+  /* Spacing scale */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px; --space-6:24px;
 }
 
 /* ================================
@@ -14,16 +32,16 @@
 html{ scroll-behavior:smooth }
 body{
   margin:0; color:var(--fg);
-  background:linear-gradient(180deg,#0b0b0b,#141414);
+  background:linear-gradient(180deg,var(--color-bg),var(--color-bg-2));
   font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
 }
 img{ max-width:100%; height:auto; border-radius:12px }
 a{ color:var(--fg); text-decoration:none }
-.container{ width:min(100%,var(--max)); margin-inline:auto; padding:0 20px }
-.pill{ display:inline-block; padding:.4rem .9rem; border:1px solid #ffffff22; border-radius:999px; background:#ffffff10; backdrop-filter:blur(6px) }
+.container{ width:min(100%,var(--max)); margin-inline:auto; padding:0 var(--space-5) }
+.pill{ display:inline-block; padding:.4rem .9rem; border:1px solid var(--color-border-heavy); border-radius:999px; background:var(--color-note-bg); backdrop-filter:blur(6px) }
 .muted{ color:var(--muted) }
 .btn{
-  padding:.8rem 1.2rem; border-radius:12px; border:1px solid #ffffff22; font-weight:700;
+  padding:.8rem 1.2rem; border-radius:12px; border:1px solid var(--color-border-heavy); font-weight:700;
   transition:transform var(--motion-fast) var(--easing), opacity var(--motion-fast) var(--easing);
 }
 .btn:active{ transform:scale(.98); opacity:.95 }
@@ -32,7 +50,7 @@ a{ color:var(--fg); text-decoration:none }
 .btn-outline{ background:transparent }
 
 /* Utilities */
-.mt-16{ margin-top:16px } .note{ font-size:.9rem; color:var(--muted) }
+.mt-16{ margin-top:var(--space-4) } .note{ font-size:.9rem; color:var(--muted) }
 .note-block{ margin:.2rem 0 1rem }
 .skip-link{ position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden }
 .skip-link:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:1000 }
@@ -57,7 +75,7 @@ details[role="list"] .menu a:focus-visible{
 header{
   position:sticky; top:0; z-index:50;
   background:rgba(11,11,11,.7); backdrop-filter:blur(8px);
-  border-bottom:1px solid #ffffff14;
+  border-bottom:1px solid var(--color-border-strong);
   transition:padding var(--motion-fast) var(--easing), background var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing);
 }
 header.scrolled{ background:rgba(11,11,11,.85); box-shadow:0 6px 20px rgba(0,0,0,.25) }
@@ -71,15 +89,15 @@ nav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-6px
 
 /* Hamburger */
 details[role="list"]{ position:relative }
-details[role="list"] summary{ list-style:none; cursor:pointer; padding:.4rem .75rem; border:1px solid #ffffff20; border-radius:10px }
+details[role="list"] summary{ list-style:none; cursor:pointer; padding:.4rem .75rem; border:1px solid var(--color-border-outline); border-radius:10px }
 details[role="list"] summary::marker, details[role="list"] summary::-webkit-details-marker{ display:none }
 details[role="list"] .menu{
   position:absolute; right:0; top:calc(100% + 8px);
-  background:#191919; border:1px solid #ffffff18; border-radius:12px;
+  background:var(--color-surface-2); border:1px solid var(--color-border-xstrong); border-radius:12px;
   min-width:220px; display:flex; flex-direction:column; overflow:hidden
 }
-details[open][role="list"] .menu a{ padding:.9rem 1rem; border-bottom:1px solid #ffffff12 }
-details[open][role="list"] .menu a:hover{ background:#ffffff08 }
+details[open][role="list"] .menu a{ padding:.9rem 1rem; border-bottom:1px solid var(--color-border) }
+details[open][role="list"] .menu a:hover{ background:var(--color-note-bg-weak) }
 @media (min-width:900px){ details[role="list"]{ display:none } .links{ display:flex; gap:18px } }
 @media (max-width:899px){ .links{ display:none } }
 
@@ -100,15 +118,15 @@ details[open][role="list"] .menu a:hover{ background:#ffffff08 }
 
 /* Wave */
 .wave svg{ display:block; width:100%; height:64px } .wave{ margin-top:-10px }
-.wave path{ fill:#111; opacity:.8 }
+.wave path{ fill:var(--color-surface-1); opacity:.8 }
 
 /* ================================
    Sections / Cards
 ================================== */
-section{ padding:60px 0; border-top:1px solid #ffffff10; scroll-margin-top:84px }
+section{ padding:60px 0; border-top:1px solid var(--color-border-weak); scroll-margin-top:84px }
 section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値に統一 */
 .lead{ color:var(--muted); margin:.05rem 0 .45rem }
-.card{ background:var(--card); border:1px solid #ffffff10; border-radius:var(--radius); padding:22px }
+.card{ background:var(--card); border:1px solid var(--color-border-weak); border-radius:var(--radius); padding:22px }
 .card h3:first-child{ margin-top:0 }
 .accent-bar{ height:3px; background:linear-gradient(90deg,var(--accent),transparent,var(--accent-2)) }
 
@@ -117,7 +135,7 @@ section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値�
 @media (min-width:800px){ .info-grid{ grid-template-columns:1fr 1fr } }
 #about .card{
   position:relative; padding:18px 18px 16px;
-  background:linear-gradient(180deg,#141414,#0f0f0f); border:1px solid #ffffff14;
+  background:linear-gradient(180deg,var(--color-bg-2),#0f0f0f); border:1px solid var(--color-border-strong);
 }
 #about .card::after{
   content:""; position:absolute; left:0; right:0; top:0; height:2px;
@@ -131,12 +149,13 @@ section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値�
 #about .info-grid .card:first-child li{
   padding:4px 0; border-top:1px solid #ffffff12; line-height:1.55;
 }
+#about .info-grid .card:first-child li{ border-top-color:var(--color-border) }
 #about .info-grid .card:first-child li:first-child{ border-top:none }
 /* 右カード：チップ風 */
 #about .info-grid .card:nth-child(2) ul{
   list-style:none; padding:0; margin:.35rem 0 0; display:flex; flex-wrap:wrap; gap:10px 12px;
 }
-#about .info-grid .card:nth-child(2) li{ padding:.35rem .6rem; border:1px solid #ffffff14; background:#ffffff07; border-radius:10px }
+#about .info-grid .card:nth-child(2) li{ padding:.35rem .6rem; border:1px solid var(--color-border-strong); background:var(--color-note-bg-weak); border-radius:10px }
 #about .info-grid .card:nth-child(2) li .pill{ background:transparent; border:none; padding:0; backdrop-filter:none }
 
 /* ================================
@@ -153,12 +172,13 @@ section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値�
   box-shadow:0 18px 40px rgba(0,0,0,.28);
   transition:transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing);
 }
+.compare-card{ border-color:var(--color-border-strong) }
 .compare-card:hover{ transform:translateY(-6px); box-shadow:0 26px 60px rgba(0,0,0,.36) }
 .compare-photo{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block }
 .compare-body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:.55rem }
 .compare-title{ display:flex; align-items:baseline; gap:10px; justify-content:space-between }
 .compare-title h3{ margin:.1rem 0; font-size:clamp(1.05rem,1.7vw,1.25rem) }
-.price-badge{ font-size:1.02rem; padding:.3rem .7rem; border-radius:.6rem; background:#ffffff10; border:1px solid #ffffff22; white-space:nowrap }
+.price-badge{ font-size:1.02rem; padding:.3rem .7rem; border-radius:.6rem; background:var(--color-note-bg); border:1px solid var(--color-border-heavy); white-space:nowrap }
 .badges{ display:flex; flex-wrap:wrap; gap:8px; margin:.2rem 0 0 }
 
 /* with-thumb cards（オムライス等） */
@@ -177,7 +197,7 @@ section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値�
 /* chili table */
 .chili-grid{ display:grid; gap:12px }
 @media (min-width:720px){ .chili-grid{ grid-template-columns:repeat(3,1fr) } }
-.chili{ background:var(--card); border:1px solid #ffffff14; border-radius:12px; padding:14px }
+.chili{ background:var(--card); border:1px solid var(--color-border-strong); border-radius:12px; padding:14px }
 .chili h4{ margin:.2rem 0 .4rem; font-size:1rem }
 
 /* ================================
@@ -195,7 +215,7 @@ section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値�
 .map{ border:0; width:100%; height:380px; border-radius:14px }
 .access{ display:grid; gap:18px } @media (min-width:900px){ .access{ grid-template-columns:1.1fr .9fr } }
 .contact-actions{ display:flex; gap:12px; flex-wrap:wrap } .contact-actions a{ display:inline-flex; align-items:center; gap:.5rem }
-footer{ padding:40px 0; color:#bdbdbd; text-align:center; border-top:1px solid #ffffff10 } footer a{ color:#e7e7e7 }
+footer{ padding:40px 0; color:var(--color-text-faint); text-align:center; border-top:1px solid var(--color-border-weak) } footer a{ color:var(--color-text-secondary) }
 .map-placeholder p.lead{ margin:0 0 .6rem } .map-placeholder p.muted{ margin:.6rem 0 0 }
 
 /* ================================
@@ -205,7 +225,7 @@ footer{ padding:40px 0; color:#bdbdbd; text-align:center; border-top:1px solid #
 .reveal-in{ opacity:1; transform:none; transition:opacity var(--motion-base) var(--easing), transform var(--motion-base) var(--easing) }
 #progress{ position:fixed; top:0; left:0; height:3px; width:0; z-index:999; background:linear-gradient(90deg,var(--accent),var(--accent-2)) }
 .toTop{
-  position:fixed; right:16px; bottom:18px; padding:.7rem .9rem; border:1px solid #ffffff22; border-radius:999px; background:#111;
+  position:fixed; right:16px; bottom:18px; padding:.7rem .9rem; border:1px solid var(--color-border-heavy); border-radius:999px; background:var(--color-surface-1);
   opacity:0; pointer-events:none; transition:opacity .2s; box-shadow:0 6px 18px rgba(0,0,0,.25); z-index:999;
 }
 .blur-up{ filter:blur(8px); transform:scale(1.02); transition:filter 400ms var(--easing), transform 400ms var(--easing) }
@@ -248,7 +268,7 @@ body.flashy::after, html.flashy body::after{
 /* ================================
    Marquee
 ================================== */
-.marquee{ overflow:hidden; border-top:1px solid #ffffff12; border-bottom:1px solid #ffffff12; background:#111 }
+.marquee{ overflow:hidden; border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border); background:var(--color-surface-1) }
 .marquee .track{ display:inline-block; white-space:nowrap; padding:.4rem 0; animation:scroll 22s linear infinite }
 .marquee:hover .track{ animation-play-state:paused }
 @keyframes scroll{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
@@ -267,12 +287,12 @@ body.locked{ overflow:hidden }
 .gate{ position:fixed; inset:0; background:rgba(0,0,0,.82); display:grid; place-items:center; z-index:10000 }
 .gate.hidden{ display:none }
 .gate .panel{
-  width:min(90vw,450px); background:#121212; color:var(--fg);
-  border:1px solid #ffffff22; border-radius:12px; padding:20px; box-shadow:0 20px 50px rgba(0,0,0,.45)
+  width:min(90vw,450px); background:var(--card); color:var(--fg);
+  border:1px solid var(--color-border-heavy); border-radius:12px; padding:20px; box-shadow:0 20px 50px rgba(0,0,0,.45)
 }
 .gate input{
-  width:100%; padding:.8rem 1rem; border-radius:10px; border:1px solid #ffffff22;
-  background:#0b0b0b; color:#fff; margin-top:.35rem;
+  width:100%; padding:.8rem 1rem; border-radius:10px; border:1px solid var(--color-border-heavy);
+  background:var(--color-bg); color:#fff; margin-top:.35rem;
 }
 
 /* ヒーローの「人気メニューを見る」だけシーン効果を無効化 */
