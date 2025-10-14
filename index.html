@@ -79,7 +79,6 @@
             <a href="#contact">お問い合わせ</a>
           </div>
         </details>
-        <button id="toggleFlash" class="btn btn-outline" aria-pressed="true" title="見た目を派手にする/抑える">派手モード：ON</button>
       </nav>
     </div>
   </header>
@@ -450,21 +449,8 @@
 
   // 派手モード（トグル）
   {
-    const key = 'flashy-mode';
     const btn = document.getElementById('toggleFlash');
-    function setMode(on){
-      document.documentElement.classList.toggle('flashy', !!on);
-      document.body.classList.toggle('flashy', !!on);
-      if(btn){
-        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-        btn.textContent = on ? '派手モード：ON' : '派手モード：OFF';
-      }
-      localStorage.setItem(key, on ? '1' : '0');
-    }
-    const saved = localStorage.getItem(key);
-    const initial = saved === null ? true : saved === '1'; // 初回はON
-    setMode(initial);
-    if(btn){ btn.addEventListener('click', ()=> setMode(!document.documentElement.classList.contains('flashy'))); }
+    if(btn) btn.remove();
   }
   </script>
   <script>
@@ -559,6 +545,9 @@
 
 </body>
 </html>
+
+
+
 
 
 
