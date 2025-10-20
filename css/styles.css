@@ -34,7 +34,7 @@ body{
   margin:0; color:var(--fg);
   background:linear-gradient(180deg,var(--color-bg),var(--color-bg-2));
   font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
-  letter-spacing:.01em; /* 全体の字間をわずかに広げる */
+  /*letter-spacing:.01em;  全体の字間をわずかに広げる */
 }
 img{ max-width:100%; height:auto; border-radius:12px }
 a{ color:var(--fg); text-decoration:none }
@@ -44,7 +44,7 @@ a{ color:var(--fg); text-decoration:none }
 .btn{
   padding:.8rem 1.2rem; border-radius:12px; border:1px solid var(--color-border-heavy); font-weight:700;
   transition:transform var(--motion-fast) var(--easing), opacity var(--motion-fast) var(--easing);
-  letter-spacing:.02em; /* UIテキストは少し広め */
+  /*letter-spacing:.02em;  UIテキストは少し広め */
 }
 .btn:active{ transform:scale(.98); opacity:.95 }
 .btn-primary{ background:var(--accent); border-color:#000; box-shadow:0 10px 25px rgba(226,58,46,.35) }
@@ -93,7 +93,7 @@ nav a.active{ position:relative }
 nav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:2px }
 
 /* Tracking tweaks */
-nav a, .badge, .pill, .chip, .title, h1, h2, h3, h4{ letter-spacing:.02em }
+nav a, .badge, .pill, .chip, .title, h1, h2, h3, h4{ letter-spacing:.0em }
 .brand h1{ letter-spacing:0 } /* ロゴは0に固定 */
 .price-badge, .price-list dd{ letter-spacing:0 } /* 数値は詰めを戻す */
 
