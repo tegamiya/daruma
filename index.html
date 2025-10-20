@@ -332,6 +332,7 @@
   <dialog id="lightbox">
     <div class="lightbox-backdrop"></div>
     <img id="lightboxImg" class="lightbox-img" alt="">
+    <button id="lightboxClose" class="lightbox-close" type="button" aria-label="閉じる" title="閉じる">×</button>
   </dialog>
 
   <script>
@@ -407,11 +408,13 @@
   {
     const dlg = document.getElementById('lightbox');
     const dlgImg = document.getElementById('lightboxImg');
+    const dlgClose = document.getElementById('lightboxClose');
     if(dlg && dlgImg){
       document.querySelectorAll('#photos .photo-grid img').forEach(img=>{
-        img.addEventListener('click', ()=>{ dlgImg.src = img.src; dlgImg.alt = img.alt||""; dlg.showModal(); });
+        img.addEventListener('click', ()=>{ dlgImg.src = img.src; dlgImg.alt = img.alt||""; dlg.showModal(); if(dlgClose){ dlgClose.focus(); } });
       });
       dlg.addEventListener('click', (e)=>{ if(e.target !== dlgImg) dlg.close(); });
+      if(dlgClose){ dlgClose.addEventListener('click', (e)=>{ e.stopPropagation(); dlg.close(); }); }
       addEventListener('keydown', (e)=>{ if(e.key==='Escape' && dlg.open) dlg.close(); });
     }
   }
