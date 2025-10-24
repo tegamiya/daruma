@@ -1,4 +1,4 @@
-/* ================================
+﻿/* ================================
    Core tokens
 ================================== */
 :root{
@@ -56,6 +56,10 @@ a{ color:var(--fg); text-decoration:none }
 .note-block{ margin:.2rem 0 1rem }
 .skip-link{ position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden }
 .skip-link:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; z-index:1000 }
+/* Access / Contact */
+.contact-actions{ display:flex; gap:12px; flex-wrap:wrap }
+.contact-actions a,
+.contact-actions button{ display:inline-flex; align-items:center; gap:.5rem; color:var(--fg) }
 
 /* Heading visibility */
 h1, h2, h3, h4{ text-shadow:0 1px 6px rgba(0,0,0,.22) }
