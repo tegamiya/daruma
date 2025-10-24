@@ -64,6 +64,14 @@ a{ color:var(--fg); text-decoration:none }
 /* Heading visibility */
 h1, h2, h3, h4{ text-shadow:0 1px 6px rgba(0,0,0,.22) }
 
+/* About: こだわりリスト（アイコン付き） */
+#about .info-grid > .card:nth-of-type(2) ul{ list-style:none; padding:0; margin:.6rem 0 0 }
+#about .info-grid > .card:nth-of-type(2) ul li{ display:flex; align-items:center; gap:8px; margin:.35rem 0 }
+#about .info-grid > .card:nth-of-type(2) ul li::before{
+  content:""; display:inline-block; width:16px; height:16px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%23e23a2e\"><path d=\"M12 2a10 10 0 100 20 10 10 0 000-20zm-1.7 11.3l-2.3-2.3 1.4-1.4.9.9 3.6-3.6 1.4 1.4-5 5z\"/></svg>') no-repeat center / contain;
+}
+
 /* Screen-reader only */
 .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
 
