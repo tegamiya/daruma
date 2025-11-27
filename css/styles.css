@@ -137,6 +137,12 @@ details[open][role="list"] .menu a:hover{ background:var(--color-note-bg-weak) }
   aspect-ratio:16/9; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.35);
   max-height:clamp(300px,58vh,560px); object-fit:cover; object-position:center 40%;
 }
+.hero .cta{
+  margin-top:1rem;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
 
 /* Wave */
 .wave svg{ display:block; width:100%; height:64px } .wave{ margin-top:-10px }
