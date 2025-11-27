@@ -1,23 +1,23 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>担々麺だるま｜公式サイト</title>
-  <meta name="description" content="担々麺だるまの公式サイト。赤・黒の担々麺、辛さ（1〜5）調整可。西鉄下大利駅徒歩1分。営業時間・メニュー・アクセスはこちら。" />
+  <meta name="description" content="担々麺だるまの公式サイト。赤・黒の担々麺、辛さ1〜5をお好みで。福岡県大野城市下大利1-15-14。営業時間 11:00〜14:30 / 17:00〜23:30。" />
   <link rel="canonical" href="https://your-name.github.io/your-repo/" />
   <meta property="og:title" content="担々麺だるま｜公式サイト" />
-  <meta property="og:description" content="胡麻の香り高い担々麺、辛さが選べる人気店。アクセス・メニュー・営業時間はこちら。" />
+  <meta property="og:description" content="香り立つ胡麻と花椒。赤と黒の担々麺、辛さ1〜5をお好みで。福岡県大野城市下大利1-15-14。営業時間 11:00〜14:30 / 17:00〜23:30。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1617093727343-374698792f0b?q=80&w=1200&auto=format&fit=crop" />
   <meta property="og:locale" content="ja_JP" />
-  <meta property="og:site_name" content="担々麺 だるま" />
+  <meta property="og:site_name" content="担々麺だるま" />
   <meta name="format-detection" content="telephone=no" />
-  <!-- 検索除け -->
+  <!-- 検索回避 -->
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0b0b0b" />
 
-  <!-- 分離したCSS -->
+  <!-- サイト全体CSS -->
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- 構造化データ -->
@@ -27,9 +27,9 @@
     "@type": "Restaurant",
     "name": "担々麺だるま",
     "servesCuisine": "Chinese",
-    "address": {"@type": "PostalAddress", "addressLocality": "大野城市", "streetAddress": "下大利1-15-14", "postalCode": "816-0952"},
+    "address": {"@type": "PostalAddress", "addressLocality": "福岡県大野城市", "streetAddress": "下大利1-15-14", "postalCode": "816-0952"},
     "url": "https://your-name.github.io/your-repo/",
-    "priceRange": "¥¥",
+    "priceRange": "\\",
     "image": [
       "https://images.unsplash.com/photo-1617093727343-374698792f0b?q=80&w=1200&auto=format&fit=crop"
     ]
@@ -40,19 +40,19 @@
   <!-- Soft Gate -->
   <div id="gate" class="gate hidden" aria-modal="true" role="dialog" aria-labelledby="gateTitle" aria-describedby="gateDesc">
     <span id="gateTitle" class="sr-only">閲覧パスワード</span>
-    <span id="gateDesc" class="sr-only">一時的に公開を制限しています。</span>
+    <span id="gateDesc" class="sr-only">一時的に閲覧制限をしています。</span>
     <form id="gateForm" class="panel" autocomplete="off">
       <h3 style="margin:0 0 .5rem">閲覧パスワード</h3>
-      <p class="muted" style="margin:0 0 .8rem">一時的に公開を制限しています。</p>
-      <label for="pw" class="muted">Password</label>
+      <p class="muted" style="margin:0 0 .8rem">一時的に閲覧制限をしています。</p>
+      <label for="pw" class="muted">パスワード</label>
       <input type="password" id="pw" required>
-      <button class="btn btn-primary" type="submit" style="width:100%;margin-top:.8rem">入る</button>
+      <button class="btn btn-primary" type="submit" style="width:100%;margin-top:.8rem">送信</button>
     </form>
   </div>
 
   <div class="accent-bar" aria-hidden="true"></div>
   <div id="progress"></div>
-  <a href="#main" class="pill skip-link">本文へスキップ</a>
+  <a href="#main" class="pill skip-link">メインへスキップ</a>
 
   <!-- Header / Navigation -->
   <header>
@@ -61,9 +61,9 @@
         <img class="logo" src="img/daruma.png" alt="" aria-hidden="true" width="34" height="34" loading="lazy" decoding="async" />
         <h1><a href="#main" class="home-link" aria-label="トップへ戻る">担々麺だるま</a></h1>
       </div>
-      <nav aria-label="主要メニュー">
+      <nav aria-label="グローバルメニュー">
         <div class="links">
-          <a href="#about">店舗情報</a>
+          <a href="#about">お店について</a>
           <a href="#menu">メニュー</a>
           <a href="#photos">写真</a>
           <a href="#contact">お問い合わせ</a>
@@ -71,7 +71,7 @@
         <details role="list">
           <summary aria-label="メニュー">☰ メニュー</summary>
           <div class="menu" onClick="this.parentElement.removeAttribute('open')">
-            <a href="#about">店舗情報</a>
+            <a href="#about">お店について</a>
             <a href="#menu">メニュー</a>
             <a href="#photos">写真</a>
             <a href="#contact">お問い合わせ</a>
@@ -82,7 +82,7 @@
   </header>
 
   <div class="marquee" aria-label="お知らせ">
-    <div class="track">🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma 　　🌶️ 辛さ1〜5で調整OK ・ 西鉄下大利駅 徒歩1分 ・ 駐車場1台（近隣コインPあり） ・ 営業 11:00–14:30 / 17:00–23:30 ・ Instagram @tantanmendaruma</div>
+    <div class="track">辛さ1〜5まで調整OK ｜ 福岡県大野城市下大利1-15-14 ｜ 営業 11:00〜14:30 / 17:00〜23:30 ｜ Instagram @tantanmendaruma</div>
   </div>
 
   <!-- Hero -->
@@ -90,16 +90,16 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="pill badge">赤・黒の看板担々麺</span>
-        <h2 class="title">濃厚ごま×辣油。<br/>赤と黒、好みで選べる担々麺。</h2>
-        <p class="sub">辛さは <strong>1〜5</strong> 段階で調整可。西鉄下大利駅徒歩1分（最新情報はInstagramへ）</p>
+        <span class="pill badge">福岡・大野城の担々麺</span>
+        <h2 class="title">香る胡麻と花椒。<br/>赤と黒、辛さは1〜5段階。</h2>
+        <p class="sub">辛さは <strong>1〜5</strong> からお選びください。福岡県大野城市下大利1-15-14でお待ちしています。</p>
         <div class="cta">
-          <a class="btn btn-primary" href="#menu">人気メニューを見る</a>
+          <a class="btn btn-primary" href="#menu">メニューをみる</a>
           <a class="btn btn-outline" href="#access">アクセスを見る</a>
         </div>
       </div>
       <div>
-        <img class="kv" src="img/tantanmen.jpg" alt="湯気の立つ担々麺の写真" fetchpriority="high" decoding="async" width="1600" height="900" srcset="img/tantanmen-w400.jpg 400w, img/tantanmen-w800.jpg 800w, img/tantanmen-w1200.jpg 1200w, img/tantanmen-w1600.jpg 1600w" sizes="(min-width: 1200px) 700px, (min-width: 900px) 600px, 100vw" />
+        <img class="kv" src="img/tantanmen.jpg" alt="香り高い担々麺の写真" fetchpriority="high" decoding="async" width="1600" height="900" srcset="img/tantanmen-w400.jpg 400w, img/tantanmen-w800.jpg 800w, img/tantanmen-w1200.jpg 1200w, img/tantanmen-w1600.jpg 1600w" sizes="(min-width: 1200px) 700px, (min-width: 900px) 600px, 100vw" />
       </div>
     </div>
   </section>
@@ -110,173 +110,94 @@
     </svg>
   </div>
 
-  <!-- 店舗情報 -->
+  <!-- About -->
   <section id="about">
     <div class="container info-grid">
       <div class="card">
-        <h2>店舗情報</h2>
+        <h2>お店について</h2>
         <ul>
           <li>住所：<strong>福岡県大野城市下大利1-15-14</strong></li>
-          <li>営業時間：<strong>11:00–14:30 / 17:00–23:30</strong>（変更の可能性あり）</li>
+          <li>営業時間：<strong>11:00〜14:30 / 17:00〜23:30</strong>（変更の可能性あり）</li>
           <li>定休日：<strong>不定休</strong>（最新情報はInstagramをご確認ください）</li>
-          <li>席数：<strong>カウンター10・テーブル8（計18席）</strong></li>
-          <li>支払い：<strong>現金・PayPay（カード不可）</strong></li>
+          <li>座席：<strong>カウンター10席＋テーブル8席</strong></li>
+          <li>決済：<strong>現金・PayPay</strong></li>
         </ul>
       <div class="contact-actions">
           <a class="btn btn-primary" href="https://www.instagram.com/tantanmendaruma/" target="_blank" rel="noopener">Instagramを見る</a>
-          <button class="btn btn-primary" id="loadMap" type="button">地図を表示（Googleマップ）</button>
+          <button class="btn btn-primary" id="loadMap" type="button">地図を開く（Googleマップ）</button>
         </div>
       <div class="map-placeholder" id="mapbox" data-src="https://maps.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E5%A4%A7%E9%87%8E%E5%9F%8E%E5%B8%82%E4%B8%8B%E5%A4%A7%E5%88%A91-15-14&t=&z=17&ie=UTF8&iwloc=&output=embed"></div>
 
       </div>
       <div class="card">
         <h2>こだわり</h2>
-        <p class="lead">担々麺だるまは、赤担々麺・黒担々麺を看板に、辛さは <strong>1〜5</strong> 段階で調整可能。辛さと胡麻のコクをバランスよく仕上げています。</p>
+        <p class="lead">担々麺だるまは、赤担々麺・黒担々麺を中心に、辛さを<strong>1〜5段階</strong>まで調整可能です。ごまの香りと花椒の痺れをバランスよく仕上げています。</p>
         <ul>
-          <li>辛さ：<span class="pill">1〜5</span> まで調整</li>
-          <li>麺：中太ストレート</li>
-          <li>トッピング：菜の花、肉みそ ほか</li>
+          <li>辛さ：<span class="pill">1〜5</span> から選択</li>
+          <li>麺：特製ストレート麺</li>
+          <li>トッピング：温玉、追加肉 など</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- メニュー -->
-  <section id="menu">
+  <!-- Menu -->
+    <section id="menu">
     <div class="container">
-      <h2>メニュー <span class="note">（税込）</span></h2>
+      <h2>メニュー <span class="note">写真一覧</span></h2>
+      <p class="lead">写真内にメニュー名と価格を記載しています。タップ（クリック）で拡大してご覧ください。</p>
 
-      <!-- おすすめ -->
-      <!-- 比較カード：推し3品 -->
-      <div class="compare" aria-label="人気3品の比較">
-        <!-- 赤の担々麺 -->
-        <article class="compare-card">
-          <img class="compare-photo" src="img/aka.jpg" alt="赤の担々麺" loading="lazy" decoding="async" width="800" height="600" srcset="img/aka-w400.jpg 400w, img/aka-w800.jpg 800w" sizes="(min-width: 900px) 360px, (min-width: 600px) 45vw, 100vw">
-          <div class="compare-body">
-            <div class="compare-title">
-              <h3>赤の担々麺</h3>
-              <div class="price-badge">¥1,000</div>
-            </div>
-            <p class="muted">王道の旨辛。ほろ苦い菜の花トッピング。</p>
-            <div class="badges">
-              <span class="chip">辛さ 1〜5</span>
-              <span class="chip">ごまの香り</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 黒の担々麺 -->
-        <article class="compare-card">
-          <img class="compare-photo" src="img/kuro.jpg" alt="黒の担々麺" loading="lazy" decoding="async" width="800" height="600" srcset="img/kuro-w400.jpg 400w, img/kuro-w800.jpg 800w" sizes="(min-width: 900px) 360px, (min-width: 600px) 45vw, 100vw">
-          <div class="compare-body">
-            <div class="compare-title">
-              <h3>黒の担々麺</h3>
-              <div class="price-badge">¥1,000</div>
-            </div>
-            <p class="muted">黒胡麻のコク深さ。麺もスープも黒胡麻使用。</p>
-            <div class="badges">
-              <span class="chip">辛さ 1〜5</span>
-              <span class="chip">黒胡麻リッチ</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 菜の花ラーメン -->
-        <article class="compare-card">
-          <img class="compare-photo" src="img/nanohana.jpg" alt="菜の花ラーメン" loading="lazy" decoding="async" width="800" height="600" srcset="img/nanohana-w400.jpg 400w, img/nanohana-w800.jpg 800w, img/nanohana-w1200.jpg 1200w" sizes="(min-width: 900px) 360px, (min-width: 600px) 45vw, 100vw">
-          <div class="compare-body">
-            <div class="compare-title">
-              <h3>菜の花ラーメン</h3>
-              <div class="price-badge">¥900</div>
-            </div>
-            <p class="muted">ほろ苦い菜の花。鶏ガラ醤油のシンプルな旨さ。</p>
-            <div class="badges">
-              <span class="chip">あっさり</span>
-              <span class="chip">辛さなし</span>
-              <span class="chip">菜の花</span>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- ふわトロオムライス -->
-      <div class="card with-thumb mt-16">
-        <img src="img/omuraisu.jpg" alt="ふわトロオムライス" loading="lazy" width="176" height="176"/>
-        <p class="muted note-block">創業当時からの王道メニュー！<br><span class="note">※各担々麺・菜の花ラーメンのセットとして注文可能</span></p>
-        <dl class="price-list">
-          <dt>単品</dt><dd>¥900</dd>
-          <dt>セットメニュー【小】</dt><dd>¥1,400</dd>
-        </dl>
-      </div>
-
-      <!-- セットメニュー -->
-      <div class="card mt-16">
-        <h3>セットメニュー <span class="note">（各担々麺・菜の花ラーメンに追加）</span></h3>
-        <dl class="price-list">
-          <dt>オムライス（小）</dt><dd>+¥500</dd>
-          <dt>白ご飯（中）</dt><dd>+¥200</dd>
-        </dl>
-      </div>
-
-      <!-- その他メニュー -->
-      <div class="card mt-16">
-        <h3>その他</h3>
-        <dl class="price-list">
-          <dt>各麺 大盛</dt><dd>+¥200</dd>
-          <dt>各麺 替玉</dt><dd>+¥200</dd>
-        </dl>
-      </div>
-
-      <!-- トッピング -->
-      <div class="card mt-16">
-        <h3>トッピング</h3>
-        <p class="note note-block">肉味噌・菜の花は通常量に対して<strong>1.5～2倍</strong>追加します。</p>
-        <dl class="price-list">
-          <dt>肉味噌多め</dt><dd>+¥200</dd>
-          <dt>菜の花多め</dt><dd>+¥200</dd>
-          <dt>半熟卵 1個</dt><dd>+¥200</dd>
-        </dl>
-      </div>
-
-      <!-- 辛味表 -->
-      <div class="card mt-16">
-        <h3>辛味表 <span class="note">（赤・黒の担々麺のみ調整可能）</span></h3>
-        <div class="chili-grid">
-          <div class="chili">
-            <h4>◆ ひかえめ</h4>
-            <p class="muted">辛いのがちょっと苦手な方へ。ちょこっとピリッ…ときます！</p>
-          </div>
-          <div class="chili">
-            <h4>◆ ふつう</h4>
-            <p class="muted">ダシとスープの辛さが程よい辛さです！</p>
-          </div>
-          <div class="chili">
-            <h4>◆ ちょいカラ</h4>
-            <p class="muted">ふつうよりちょっと辛めに仕上げています！</p>
-          </div>
-          <div class="chili">
-            <h4>◆ カラ</h4>
-            <p class="muted">ダシとスープと辛さのバランス絶妙！</p>
-          </div>
-          <div class="chili">
-            <h4>◆ カラ・カラ</h4>
-            <p class="muted">辛いの大好きな方、お試しください！！</p>
-          </div>
-          <div class="chili">
-            <h4>◆ カラ・カラ以上</h4>
-            <p class="muted">さらに上もございます！スタッフまでお申し出ください！！</p>
-          </div>
-        </div>
+      <div class="menu-photo-grid" aria-label="メニュー写真一覧">
+        <figure class="menu-photo">
+          <img src="img/aka.jpg" alt="赤担々麺の写真" loading="lazy" decoding="async">
+          <figcaption>赤担々麺</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/kuro.jpg" alt="黒担々麺の写真" loading="lazy" decoding="async">
+          <figcaption>黒担々麺</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/nanohana.jpg" alt="菜の花担々麺の写真" loading="lazy" decoding="async">
+          <figcaption>菜の花担々麺</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/omuraisu.jpg" alt="オムライスセットの写真" loading="lazy" decoding="async">
+          <figcaption>オムライスセット</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/topping.jpg" alt="トッピング表の写真" loading="lazy" decoding="async">
+          <figcaption>トッピング表</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/karami.jpg" alt="辛味表の写真" loading="lazy" decoding="async">
+          <figcaption>辛味表</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/gohan.jpg" alt="ご飯メニューの写真" loading="lazy" decoding="async">
+          <figcaption>ご飯メニュー</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/oomori.jpg" alt="大盛りメニューの写真" loading="lazy" decoding="async">
+          <figcaption>大盛りメニュー</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/alcol.jpg" alt="アルコールメニューの写真" loading="lazy" decoding="async">
+          <figcaption>アルコール</figcaption>
+        </figure>
+        <figure class="menu-photo">
+          <img src="img/soft.jpg" alt="ソフトドリンクメニューの写真" loading="lazy" decoding="async">
+          <figcaption>ソフトドリンク</figcaption>
+        </figure>
       </div>
 
     </div>
   </section>
 
-  <!-- 写真 -->
+  <!-- Photos -->
   <section id="photos">
     <div class="container">
       <h2>写真</h2>
-      <p class="lead">店内・料理の雰囲気をご覧ください。</p>
+      <p class="lead">店内・外観の雰囲気をご覧ください。</p>
       <div class="photo-grid">
         <img src="img/naisou.jpg" alt="店内カウンター席" loading="lazy" height="600" srcset="img/naisou-w400.jpg 400w, img/naisou-w800.jpg 800w, img/naisou-w1200.jpg 1200w" sizes="(min-width: 1200px) 20vw, (min-width: 900px) 25vw, (min-width: 600px) 33vw, 50vw"/>
         <img src="img/gaikan.jpg" alt="店舗外観" loading="lazy" height="600" srcset="img/gaikan-w400.jpg 400w, img/gaikan-w800.jpg 800w, img/gaikan-w1200.jpg 1200w" sizes="(min-width: 1200px) 20vw, (min-width: 900px) 25vw, (min-width: 600px) 33vw, 50vw"/>
@@ -284,14 +205,14 @@
     </div>
   </section>
 
-  <!-- アクセス -->
-  
+  <!-- Access -->
+  <section id="access" aria-label="アクセス情報"></section>
 
-  <!-- お問い合わせ -->
+  <!-- Contact -->
   <section id="contact">
     <div class="container">
       <h2>お問い合わせ</h2>
-      <p class="lead">ご予約は承っておりません。その他のお問い合わせは、<strong>InstagramのDM</strong> またはご来店時にスタッフまでお声掛けください。</p>
+      <p class="lead">ご予約やお問い合わせは <strong>InstagramのDM</strong> またはスタッフまでお声がけください。</p>
       <div class="card">
         <p>Instagram：<a href="https://www.instagram.com/tantanmendaruma/" target="_blank" rel="noopener">@tantanmendaruma</a></p>
       </div>
@@ -301,13 +222,13 @@
   </main>
   <footer>
     <div class="container">
-      <p>© <span id="y"></span> 担々麺だるま — All rights reserved.</p>
-      <p><a href="#main" aria-label="ページ上部へ戻る">▲ 上へ戻る</a></p>
+      <p>© <span id="y"></span> 担々麺だるま - All rights reserved.</p>
+      <p><a href="#main" aria-label="ページ先頭へ戻る">↑ 先頭へ戻る</a></p>
     </div>
   </footer>
 
   <!-- UI extras -->
-  <button id="toTop" class="toTop" aria-label="上へ戻る">↑</button>
+  <button id="toTop" class="toTop" aria-label="先頭へ戻る">↑</button>
   <dialog id="lightbox">
     <div class="lightbox-backdrop"></div>
     <img id="lightboxImg" class="lightbox-img" alt="">
@@ -315,10 +236,10 @@
   </dialog>
 
   <script>
-  // 年度表示だけJSで自動化
+  // 年を自動表示
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // 出現アニメーション（IntersectionObserver）
+  // アニメーション（IntersectionObserver）
   const io = new IntersectionObserver((entries, obs)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
@@ -330,13 +251,13 @@
   document.querySelectorAll('.card, .menu-item, .photo-grid img, .kv, .cta .btn, h2')
     .forEach(el=>{ el.classList.add('reveal-base'); io.observe(el); });
 
-  // スクロールでヘッダー圧縮
+  // スクロールでヘッダーを縮める
   const hdr = document.querySelector('header');
   const onScroll = ()=>{ if(window.scrollY>8) hdr.classList.add('scrolled'); else hdr.classList.remove('scrolled'); };
   onScroll();
   addEventListener('scroll', onScroll, {passive:true});
 
-  // 内部リンク(#)をスムーズスクロール＆モバイルメニューを閉じる
+  // ナビのリンクをスムーズスクロール
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', e=>{
       const hash = a.getAttribute('href');
@@ -351,7 +272,7 @@
     });
   });
 
-  // クリックで地図読み込み（ユーザー操作時のみ外部接続）
+  // クリックで地図を読込（ユーザー操作時のみ外部接続）
   const mapbox = document.getElementById('mapbox');
   const loadBtn = document.getElementById('loadMap');
   if(mapbox && loadBtn){
@@ -366,7 +287,7 @@
     });
   }
 
-  // Scrollspy（現在地ハイライト）
+  // Scrollspy（現在位置をナビに反映）
   {
     const ids = ["about","menu","photos","access","contact"];
     const sections = ids.map(id=>document.getElementById(id)).filter(Boolean);
@@ -389,7 +310,7 @@
     const dlgImg = document.getElementById('lightboxImg');
     const dlgClose = document.getElementById('lightboxClose');
     if(dlg && dlgImg){
-      document.querySelectorAll('#photos .photo-grid img').forEach(img=>{
+      document.querySelectorAll('#photos .photo-grid img, .menu-photo-grid img').forEach(img=>{
         img.addEventListener('click', ()=>{ dlgImg.src = img.src; dlgImg.alt = img.alt||""; dlg.showModal(); if(dlgClose){ dlgClose.focus(); } });
       });
       dlg.addEventListener('click', (e)=>{ if(e.target !== dlgImg) dlg.close(); });
@@ -398,7 +319,7 @@
     }
   }
 
-  // 上部へ戻るボタン＆進捗バー＆パララックス
+  // ページトップボタンとプログレスバー
   {
     const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const toTop = document.getElementById('toTop');
@@ -417,10 +338,10 @@
     if(toTop){ toTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'})); }
   }
 
-  // 画像のBlur-up（読み込み後にシャープ）
+  // 画像のBlur-up
   {
     const imgs = [
-      ...document.querySelectorAll('.kv, #photos .photo-grid img, .menu-item img')
+      ...document.querySelectorAll('.kv, #photos .photo-grid img, .menu-photo-grid img')
     ];
     imgs.forEach(img=>{
       img.classList.add('blur-up');
@@ -429,21 +350,21 @@
     });
   }
 
-  // 派手モード（トグル）
+  // toggleFlashボタンがあれば除去
   {
     const btn = document.getElementById('toggleFlash');
     if(btn) btn.remove();
   }
   </script>
   <script>
-  /* --- Soft Gate (簡易パスワード) --- */
+  /* --- Soft Gate (閲覧パスワード) --- */
   {
     const ENABLE_GATE = true;
     const STORE_KEY   = 'gate-ok';
     const PASSWORD    = '123';
-    const TTL_HOURS   = 0;  // ← 何時間記憶するか
+    const TTL_HOURS   = 0;  // 0=期限なし
 
-    // URLに ?unlock=… を付けたら自動解除できる裏口（必要なければ削除）
+    // URLに ?unlock=... があればアンロック（必要なければ削除）
     const url = new URL(location.href);
     if (url.searchParams.get('unlock') === PASSWORD) {
       localStorage.setItem(STORE_KEY, JSON.stringify({ok:1, at:Date.now()}));
@@ -492,7 +413,7 @@
     });
 
     // Add decoding hint to photos grid images
-    document.querySelectorAll('#photos .photo-grid img').forEach(img=>{
+    document.querySelectorAll('#photos .photo-grid img, .menu-photo-grid img').forEach(img=>{
       if(!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
     });
 
@@ -521,17 +442,9 @@
 
     // Localize label text
     const pwLabel2 = document.querySelector('label[for="pw"]');
-    if(pwLabel2) pwLabel2.textContent = '\u30D1\u30B9\u30EF\u30FC\u30C9';
+    if(pwLabel2) pwLabel2.textContent = 'パスワード';
   }
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

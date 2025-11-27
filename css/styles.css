@@ -183,7 +183,49 @@ section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値�
 /* ================================
    Menu
 ================================== */
-.menu-grid{ display:grid; gap:18px } /* 1回の定義に統一 */
+.menu-grid{ display:grid; gap:18px }
+
+/* ================================
+   Menu gallery
+================================== */
+.menu-photo-grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+@media (min-width:900px){
+  .menu-photo-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)) }
+}
+.menu-photo{
+  margin:0;
+  background:var(--card);
+  border:1px solid var(--color-border-weak);
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  box-shadow:0 12px 32px rgba(0,0,0,.22);
+  transition:transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing);
+}
+.menu-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.menu-photo figcaption{
+  padding:0 12px 12px;
+  color:var(--muted);
+  font-weight:700;
+  letter-spacing:0;
+}
+.menu-photo:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+ /* 1回の定義に統一 */
 
 /* compare cards */
 .compare{ display:grid; gap:16px; margin-top:14px }
