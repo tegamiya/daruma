@@ -274,10 +274,8 @@ section h2{ font-size:clamp(22px,3.4vw,34px); margin:0 0 .45rem } /* 最終値�
 /* ================================
    Photos
 ================================== */
-.photo-grid{ display:grid; gap:10px; grid-template-columns:repeat(2,1fr) }
-@media (min-width:600px){ .photo-grid{ grid-template-columns:repeat(3,1fr) } }
-@media (min-width:900px){ .photo-grid{ grid-template-columns:repeat(4,1fr) } }
-@media (min-width:1200px){ .photo-grid{ grid-template-columns:repeat(5,1fr) } }
+.photo-grid{ display:grid; gap:14px; grid-template-columns:repeat(2, minmax(0,1fr)) }
+@media (min-width:900px){ .photo-grid{ grid-template-columns:repeat(3, minmax(0,1fr)) } }
 .photo-grid img{ aspect-ratio:1/1; object-fit:cover; cursor:zoom-in }
 
 /* ================================
@@ -333,7 +331,7 @@ body::after{
 }
 @keyframes sheen{ to{ transform:translateX(500%) rotate(20deg) } }
 #photos .photo-grid img{ transition:transform var(--motion-fast) var(--easing), box-shadow var(--motion-fast) var(--easing) }
-#photos .photo-grid img:hover{ transform:translateY(-6px) rotate(.8deg) scale(1.02); box-shadow:0 18px 30px rgba(0,0,0,.35) }
+#photos .photo-grid img:hover{ transform:translateY(-6px) scale(1.02); box-shadow:0 18px 30px rgba(0,0,0,.35) }
 
 /* ================================
    Marquee
